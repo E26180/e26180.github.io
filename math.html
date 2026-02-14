@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS Maths & Tools | Ahmet Ege Baykoz</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #222;
+      color: white;
+      padding: 25px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      background: white;
+      margin: 25px auto;
+      padding: 25px;
+      max-width: 800px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    input {
+      padding: 10px;
+      width: 70%;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 10px 18px;
+      border: none;
+      border-radius: 8px;
+      background: #222;
+      color: white;
+      cursor: pointer;
+      margin-top: 10px;
+      font-size: 1rem;
+    }
+
+    button:hover {
+      background: #444;
+    }
+
+    .result {
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: darkblue;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #222;
+      color: white;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>CS Maths & Tools</h1>
+  <p>Binary Conversion Tool – Ahmet Ege Baykoz</p>
+
+  <nav>
+    <a href="index.html">⬅ Back to Portfolio</a>
+  </nav>
+</header>
+
+<section>
+  <h2>Decimal to Binary Converter</h2>
+
+  <p>
+    In computer science, numbers are often represented in binary (base 2).
+    This tool converts a decimal (base 10) number into binary.
+  </p>
+
+  <label for="decimalInput"><strong>Enter a decimal number:</strong></label>
+  <br>
+  <input type="number" id="decimalInput" placeholder="Example: 13">
+
+  <br>
+  <button onclick="convertToBinary()">Convert</button>
+
+  <p class="result" id="binaryResult"></p>
+</section>
+
+<section>
+  <h2>Why Binary is Important</h2>
+  <p>
+    Binary representation is essential in computing because computers store and
+    process data using only two states: 0 and 1. Understanding binary helps explain
+    how memory, logic, and digital systems work.
+  </p>
+</section>
+
+<footer>
+  <p>© 2026 Ahmet Ege Baykoz | CS Maths & Tools Page</p>
+</footer>
+
+<script>
+  function convertToBinary() {
+    let decimalNumber = document.getElementById("decimalInput").value;
+
+    if (decimalNumber === "") {
+      document.getElementById("binaryResult").innerHTML =
+        "Please enter a number first.";
+      return;
+    }
+
+    let binaryNumber = Number(decimalNumber).toString(2);
+
+    document.getElementById("binaryResult").innerHTML =
+      "Binary result: " + binaryNumber;
+  }
+</script>
+
+</body>
+</html>
