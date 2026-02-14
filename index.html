@@ -3,68 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maths & Tools | Ahmet Ege Baykoz</title>
+  <title>Ahmet Ege Baykoz | Portfolio</title>
 
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      background: #f2f2f2;
+      background: #f4f4f4;
+      line-height: 1.6;
     }
 
     header {
       background: #222;
       color: white;
+      padding: 25px;
       text-align: center;
-      padding: 30px;
     }
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
+    nav a {
+      color: white;
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: bold;
     }
 
-    .tool-box {
+    section {
       background: white;
-      padding: 20px;
-      margin: 20px 0;
+      margin: 20px auto;
+      padding: 25px;
+      max-width: 900px;
       border-radius: 12px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     }
 
-    input {
-      padding: 10px;
-      width: 250px;
-      margin-top: 10px;
-      border-radius: 6px;
-      border: 1px solid #aaa;
+    h2 {
+      color: #333;
     }
 
-    button {
-      padding: 10px 15px;
-      margin-top: 10px;
-      border: none;
-      border-radius: 6px;
+    footer {
+      text-align: center;
+      padding: 15px;
       background: #222;
       color: white;
-      cursor: pointer;
+      margin-top: 30px;
     }
 
-    button:hover {
-      background: #444;
-    }
-
-    .result {
-      margin-top: 15px;
-      font-weight: bold;
-      color: darkblue;
-    }
-
-    a {
+    .button {
+      display: inline-block;
+      padding: 10px 15px;
+      background: #222;
+      color: white;
       text-decoration: none;
-      font-weight: bold;
-      color: #222;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    .button:hover {
+      background: #444;
     }
   </style>
 </head>
@@ -72,127 +67,100 @@
 <body>
 
 <header>
-  <h1>CS Maths & Tools</h1>
-  <p>Interactive Tools by Ahmet Ege Baykoz</p>
+  <h1>Ahmet Ege Baykoz</h1>
+  <p>Computer Science Student | York University | IPC YO1</p>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="maths.html">Maths & Tools</a>
+    <a href="#production-diary">Production Diary</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
-<div class="container">
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    Hello, my name is <strong>Ahmet Ege Baykoz</strong>. I am currently studying
+    <strong>Computer Science at York University</strong> as an IPC YO1 student.
+    This portfolio website shows my progress in web development and computer science maths.
+  </p>
+</section>
 
-  <!-- TOOL 1 -->
-  <div class="tool-box">
-    <h2>1. Decimal to Binary Converter</h2>
-    <p>Enter a decimal number and convert it into binary.</p>
+<section id="projects">
+  <h2>Projects</h2>
+  <ul>
+    <li><strong>GitHub Pages Portfolio:</strong> My first live website project.</li>
+    <li><strong>CS Maths & Tools Page:</strong> Interactive maths tools such as binary conversion.</li>
+  </ul>
 
-    <input id="decimalInput" type="number" placeholder="e.g. 25">
-    <br>
-    <button onclick="convertBinary()">Convert</button>
+  <a class="button" href="maths.html">Visit Maths & Tools Page</a>
+</section>
 
-    <div class="result" id="binaryOutput"></div>
-  </div>
+<section id="skills">
+  <h2>Skills</h2>
+  <ul>
+    <li>HTML structure and semantic sections</li>
+    <li>CSS styling and layout basics</li>
+    <li>GitHub Pages deployment</li>
+    <li>JavaScript fundamentals</li>
+    <li>Computer Science Maths: binary, combinations, logic</li>
+  </ul>
+</section>
 
-  <!-- TOOL 2 -->
-  <div class="tool-box">
-    <h2>2. Password Combinations Calculator</h2>
-    <p>
-      Calculates how many possible passwords exist using the formula:
-      characters<sup>length</sup>.
-    </p>
+<section id="production-diary">
+  <h2>Production diary – Week 15</h2>
+  <p><strong>Date:</strong> 10 February 2026</p>
 
-    <input id="charInput" type="number" placeholder="Characters (e.g. 26)">
-    <br>
-    <input id="lengthInput" type="number" placeholder="Length (e.g. 6)">
-    <br>
-    <button onclick="calculatePasswords()">Calculate</button>
+  <p>
+    This week I worked on developing my GitHub Pages portfolio website. I focused
+    on building the main sections, including About, Projects, Skills, and Contact.
+    I also created a separate CS Maths & Tools page to demonstrate practical
+    computer science maths concepts.
+  </p>
 
-    <div class="result" id="passwordOutput"></div>
-  </div>
+  <p>
+    What I actually changed this week was improving the structure of my homepage
+    with clear navigation and a more professional layout. I also added a Production
+    diary section to reflect on my learning process.
+  </p>
 
-  <!-- TOOL 3 -->
-  <div class="tool-box">
-    <h2>3. Hamming Distance Calculator</h2>
-    <p>
-      Measures how many bits differ between two binary strings of equal length.
-    </p>
+  <p>
+    The achievement I am most proud of is successfully publishing my portfolio online.
+    Seeing my work live through GitHub Pages helped me feel more confident about
+    web development.
+  </p>
 
-    <input id="bin1" type="text" placeholder="Binary 1 (e.g. 10101)">
-    <br>
-    <input id="bin2" type="text" placeholder="Binary 2 (e.g. 11100)">
-    <br>
-    <button onclick="calculateDistance()">Calculate Distance</button>
+  <p>
+    The most challenging part was understanding GitHub commits and how updates are
+    pushed correctly. I also found it difficult at first to organise HTML content
+    into clean sections.
+  </p>
 
-    <div class="result" id="hammingOutput"></div>
-  </div>
+  <p>
+    From this work, I learned more about website structure, layout, and how basic
+    JavaScript can be used for interactive tools. I also connected this to CS maths,
+    especially binary representation, which is essential in computing.
+  </p>
 
-  <p><a href="index.html">← Back to Homepage</a></p>
+  <p>
+    Next week, I want to improve my portfolio by adding more projects and expanding
+    my Maths & Tools page with at least one more interactive JavaScript feature.
+  </p>
+</section>
 
-</div>
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: yourname@example.com</p>
+  <p>GitHub: https://github.com/yourusername</p>
+</section>
 
-<script>
-  // TOOL 1: Decimal → Binary
-  function convertBinary() {
-    let decimal = document.getElementById("decimalInput").value;
-
-    if (decimal === "") {
-      document.getElementById("binaryOutput").innerHTML =
-        "Please enter a decimal number.";
-      return;
-    }
-
-    let binary = parseInt(decimal).toString(2);
-
-    document.getElementById("binaryOutput").innerHTML =
-      "Binary Result: " + binary;
-  }
-
-  // TOOL 2: Password Combinations
-  function calculatePasswords() {
-    let chars = document.getElementById("charInput").value;
-    let length = document.getElementById("lengthInput").value;
-
-    if (chars === "" || length === "") {
-      document.getElementById("passwordOutput").innerHTML =
-        "Please enter both values.";
-      return;
-    }
-
-    let result = Math.pow(chars, length);
-
-    document.getElementById("passwordOutput").innerHTML =
-      "Total Combinations: " + result.toLocaleString();
-  }
-
-  // TOOL 3: Hamming Distance
-  function calculateDistance() {
-    let b1 = document.getElementById("bin1").value.trim();
-    let b2 = document.getElementById("bin2").value.trim();
-
-    // Check binary validity
-    let binaryRegex = /^[01]+$/;
-
-    if (!binaryRegex.test(b1) || !binaryRegex.test(b2)) {
-      document.getElementById("hammingOutput").innerHTML =
-        "Please enter only binary digits (0 and 1).";
-      return;
-    }
-
-    if (b1.length !== b2.length) {
-      document.getElementById("hammingOutput").innerHTML =
-        "Both binary strings must have the same length.";
-      return;
-    }
-
-    let distance = 0;
-
-    for (let i = 0; i < b1.length; i++) {
-      if (b1[i] !== b2[i]) {
-        distance++;
-      }
-    }
-
-    document.getElementById("hammingOutput").innerHTML =
-      "Hamming Distance Result: " + distance;
-  }
-</script>
+<footer>
+  <p>© 2026 Ahmet Ege Baykoz | GitHub Pages Portfolio</p>
+</footer>
 
 </body>
 </html>
+
