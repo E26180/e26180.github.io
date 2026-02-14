@@ -9,43 +9,46 @@
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      background: #f4f4f4;
+      background: #f2f2f2;
     }
 
     header {
       background: #222;
       color: white;
       text-align: center;
-      padding: 25px;
+      padding: 30px;
     }
 
-    section {
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .tool-box {
       background: white;
-      max-width: 850px;
-      margin: 25px auto;
-      padding: 25px;
+      padding: 20px;
+      margin: 20px 0;
       border-radius: 12px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     }
 
-    h2 {
-      color: #222;
-    }
-
     input {
-      padding: 8px;
+      padding: 10px;
       width: 250px;
-      margin: 8px 0;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: 1px solid #aaa;
     }
 
     button {
-      padding: 8px 14px;
-      background: #222;
-      color: white;
+      padding: 10px 15px;
+      margin-top: 10px;
       border: none;
       border-radius: 6px;
+      background: #222;
+      color: white;
       cursor: pointer;
-      margin-top: 5px;
     }
 
     button:hover {
@@ -53,13 +56,12 @@
     }
 
     .result {
-      margin-top: 10px;
+      margin-top: 15px;
       font-weight: bold;
+      color: darkblue;
     }
 
     a {
-      display: inline-block;
-      margin-top: 20px;
       text-decoration: none;
       font-weight: bold;
       color: #222;
@@ -71,105 +73,111 @@
 
 <header>
   <h1>CS Maths & Tools</h1>
-  <p>Interactive Computer Science Maths Tools</p>
+  <p>Interactive Tools by Ahmet Ege Baykoz</p>
 </header>
 
-<!-- TOOL 1 -->
-<section>
-  <h2>1. Decimal to Binary Converter</h2>
-  <p>
-    Binary representation is essential in computer science because computers store
-    data using only 0s and 1s.
-  </p>
+<div class="container">
 
-  <input type="number" id="decimalInput" placeholder="Enter a decimal number">
-  <br>
-  <button onclick="convertToBinary()">Convert</button>
+  <!-- TOOL 1 -->
+  <div class="tool-box">
+    <h2>1. Decimal to Binary Converter</h2>
+    <p>Enter a decimal number and convert it into binary.</p>
 
-  <p class="result" id="binaryResult"></p>
-</section>
+    <input id="decimalInput" type="number" placeholder="e.g. 25">
+    <br>
+    <button onclick="convertBinary()">Convert</button>
 
-<!-- TOOL 2 -->
-<section>
-  <h2>2. Password Combinations Calculator</h2>
-  <p>
-    This tool calculates how many possible password combinations exist.
-    For example, if you have 26 letters and a password length of 6,
-    the total combinations are 26⁶.
-  </p>
+    <div class="result" id="binaryOutput"></div>
+  </div>
 
-  <input type="number" id="characters" placeholder="Number of characters (e.g. 26)">
-  <br>
-  <input type="number" id="length" placeholder="Password length (e.g. 6)">
-  <br>
-  <button onclick="calculateCombinations()">Calculate</button>
+  <!-- TOOL 2 -->
+  <div class="tool-box">
+    <h2>2. Password Combinations Calculator</h2>
+    <p>
+      Calculates how many possible passwords exist using the formula:
+      characters<sup>length</sup>.
+    </p>
 
-  <p class="result" id="comboResult"></p>
-</section>
+    <input id="charInput" type="number" placeholder="Characters (e.g. 26)">
+    <br>
+    <input id="lengthInput" type="number" placeholder="Length (e.g. 6)">
+    <br>
+    <button onclick="calculatePasswords()">Calculate</button>
 
-<!-- TOOL 3 -->
-<section>
-  <h2>3. Hamming Distance Calculator</h2>
-  <p>
-    Hamming distance measures the number of different bits between two binary strings.
-    This is important in error detection and coding theory.
-  </p>
+    <div class="result" id="passwordOutput"></div>
+  </div>
 
-  <input type="text" id="binary1" placeholder="Enter first binary string (e.g. 10101)">
-  <br>
-  <input type="text" id="binary2" placeholder="Enter second binary string (e.g. 11100)">
-  <br>
-  <button onclick="calculateHamming()">Calculate Distance</button>
+  <!-- TOOL 3 -->
+  <div class="tool-box">
+    <h2>3. Hamming Distance Calculator</h2>
+    <p>
+      Measures how many bits differ between two binary strings of equal length.
+    </p>
 
-  <p class="result" id="hammingResult"></p>
-</section>
+    <input id="bin1" type="text" placeholder="Binary 1 (e.g. 10101)">
+    <br>
+    <input id="bin2" type="text" placeholder="Binary 2 (e.g. 11100)">
+    <br>
+    <button onclick="calculateDistance()">Calculate Distance</button>
 
-<section>
-  <a href="index.html">← Back to Portfolio Homepage</a>
-</section>
+    <div class="result" id="hammingOutput"></div>
+  </div>
+
+  <p><a href="index.html">← Back to Homepage</a></p>
+
+</div>
 
 <script>
   // TOOL 1: Decimal → Binary
-  function convertToBinary() {
+  function convertBinary() {
     let decimal = document.getElementById("decimalInput").value;
 
     if (decimal === "") {
-      document.getElementById("binaryResult").innerHTML =
-        "Please enter a number.";
+      document.getElementById("binaryOutput").innerHTML =
+        "Please enter a decimal number.";
       return;
     }
 
-    let binary = Number(decimal).toString(2);
+    let binary = parseInt(decimal).toString(2);
 
-    document.getElementById("binaryResult").innerHTML =
-      "Binary: " + binary;
+    document.getElementById("binaryOutput").innerHTML =
+      "Binary Result: " + binary;
   }
 
   // TOOL 2: Password Combinations
-  function calculateCombinations() {
-    let chars = document.getElementById("characters").value;
-    let length = document.getElementById("length").value;
+  function calculatePasswords() {
+    let chars = document.getElementById("charInput").value;
+    let length = document.getElementById("lengthInput").value;
 
     if (chars === "" || length === "") {
-      document.getElementById("comboResult").innerHTML =
-        "Please fill in both values.";
+      document.getElementById("passwordOutput").innerHTML =
+        "Please enter both values.";
       return;
     }
 
-    let combinations = Math.pow(chars, length);
+    let result = Math.pow(chars, length);
 
-    document.getElementById("comboResult").innerHTML =
-      "Total combinations: " + combinations.toLocaleString();
+    document.getElementById("passwordOutput").innerHTML =
+      "Total Combinations: " + result.toLocaleString();
   }
 
   // TOOL 3: Hamming Distance
-  function calculateHamming() {
-    let b1 = document.getElementById("binary1").value;
-    let b2 = document.getElementById("binary2").value;
+  function calculateDistance() {
+    let b1 = document.getElementById("bin1").value.trim();
+    let b2 = document.getElementById("bin2").value.trim();
+
+    // Check binary validity
+    let binaryRegex = /^[01]+$/;
+
+    if (!binaryRegex.test(b1) || !binaryRegex.test(b2)) {
+      document.getElementById("hammingOutput").innerHTML =
+        "Please enter only binary digits (0 and 1).";
+      return;
+    }
 
     if (b1.length !== b2.length) {
-      document.getElementById("hammingResult").innerHTML =
-        "Binary strings must be the same length.";
+      document.getElementById("hammingOutput").innerHTML =
+        "Both binary strings must have the same length.";
       return;
     }
 
@@ -181,8 +189,8 @@
       }
     }
 
-    document.getElementById("hammingResult").innerHTML =
-      "Hamming Distance: " + distance;
+    document.getElementById("hammingOutput").innerHTML =
+      "Hamming Distance Result: " + distance;
   }
 </script>
 
