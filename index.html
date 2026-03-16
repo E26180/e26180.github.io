@@ -7,18 +7,16 @@
 
   <style>
     :root {
-      --bg: #f5f7fb;
+      --primary-red: #8b0000;
+      --primary-red-dark: #5f0000;
+      --primary-yellow: #f4c542;
+      --primary-yellow-light: #fff4cc;
+      --bg: #fffaf0;
       --surface: #ffffff;
-      --primary: #0f172a;
-      --secondary: #334155;
-      --accent: #2563eb;
-      --accent-hover: #1d4ed8;
-      --text: #1e293b;
-      --muted: #64748b;
-      --border: #e2e8f0;
-      --success: #15803d;
-      --danger: #dc2626;
-      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
       --radius: 18px;
     }
 
@@ -30,7 +28,7 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(180deg, #eef2ff 0%, var(--bg) 35%, #f8fafc 100%);
+      background: linear-gradient(180deg, #fff8e7 0%, #fffdf7 50%, #fff7ed 100%);
       color: var(--text);
       line-height: 1.7;
     }
@@ -46,7 +44,7 @@
     }
 
     header {
-      background: linear-gradient(135deg, #0f172a, #1e293b, #2563eb);
+      background: linear-gradient(135deg, var(--primary-red), #b22222, var(--primary-yellow));
       color: white;
       padding: 28px 0 70px;
       box-shadow: var(--shadow);
@@ -69,20 +67,19 @@
     nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 10px;
     }
 
     nav a {
       color: white;
       font-weight: bold;
-      opacity: 0.95;
       padding: 8px 12px;
       border-radius: 10px;
       transition: 0.3s ease;
     }
 
     nav a:hover {
-      background: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.16);
     }
 
     .hero {
@@ -101,7 +98,7 @@
 
     .hero-text p {
       font-size: 1.05rem;
-      color: #e2e8f0;
+      color: #fff8dc;
       max-width: 680px;
     }
 
@@ -113,16 +110,17 @@
     }
 
     .badge {
-      background: rgba(255, 255, 255, 0.14);
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       padding: 9px 14px;
       border-radius: 999px;
       font-size: 0.92rem;
+      color: white;
     }
 
     .hero-card {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
       border-radius: 22px;
       padding: 24px;
       backdrop-filter: blur(10px);
@@ -133,20 +131,15 @@
       font-size: 1.2rem;
     }
 
-    .hero-card p,
-    .hero-card li {
-      color: #e5e7eb;
-    }
-
     .hero-card ul {
       padding-left: 18px;
-      margin-bottom: 18px;
+      color: #fff8dc;
     }
 
     .button,
     button {
       display: inline-block;
-      background: var(--accent);
+      background: var(--primary-red);
       color: white;
       border: none;
       padding: 12px 18px;
@@ -158,7 +151,7 @@
 
     .button:hover,
     button:hover {
-      background: var(--accent-hover);
+      background: var(--primary-red-dark);
       transform: translateY(-1px);
     }
 
@@ -173,12 +166,12 @@
       padding: 30px;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      border: 1px solid rgba(226, 232, 240, 0.8);
+      border: 1px solid var(--border);
     }
 
     h2 {
       margin-top: 0;
-      color: var(--primary);
+      color: var(--primary-red);
       font-size: 1.7rem;
       margin-bottom: 14px;
     }
@@ -196,7 +189,7 @@
     }
 
     .card {
-      background: #f8fafc;
+      background: #fffdf7;
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 20px;
@@ -204,7 +197,7 @@
 
     .card h3 {
       margin-top: 0;
-      color: var(--primary);
+      color: var(--primary-red);
     }
 
     ul {
@@ -228,28 +221,28 @@
     .skills-list li,
     .contact-list li {
       margin: 0;
-      background: #f8fafc;
+      background: #fffdf7;
       border: 1px solid var(--border);
       padding: 14px 16px;
       border-radius: 14px;
       font-weight: 600;
-      color: var(--secondary);
+      color: #374151;
     }
 
     .contact-list a {
-      color: var(--accent);
+      color: var(--primary-red);
       word-break: break-word;
     }
 
     .diary {
-      border-left: 5px solid var(--accent);
+      border-left: 5px solid var(--primary-yellow);
       padding-left: 20px;
     }
 
     .diary .date {
       display: inline-block;
-      background: #dbeafe;
-      color: #1d4ed8;
+      background: var(--primary-yellow-light);
+      color: #8a5a00;
       padding: 7px 12px;
       border-radius: 999px;
       font-weight: bold;
@@ -267,14 +260,14 @@
       display: block;
       font-weight: bold;
       margin-bottom: 7px;
-      color: var(--secondary);
+      color: #374151;
     }
 
     input,
     textarea {
       width: 100%;
       padding: 13px 14px;
-      border: 1px solid #cbd5e1;
+      border: 1px solid #d1d5db;
       border-radius: 12px;
       font: inherit;
       background: #fff;
@@ -284,8 +277,8 @@
     input:focus,
     textarea:focus {
       outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+      border-color: var(--primary-red);
+      box-shadow: 0 0 0 4px rgba(139, 0, 0, 0.12);
     }
 
     #form-status {
@@ -302,8 +295,8 @@
     footer {
       text-align: center;
       padding: 22px;
-      background: #0f172a;
-      color: #e2e8f0;
+      background: var(--primary-red);
+      color: #fff8dc;
       margin-top: 30px;
     }
 
@@ -321,10 +314,6 @@
         flex-direction: column;
         align-items: flex-start;
       }
-
-      nav {
-        gap: 8px;
-      }
     }
   </style>
 </head>
@@ -335,6 +324,7 @@
       <div class="topbar">
         <div class="brand">Ahmet Ege Baykoz</div>
         <nav>
+          <a href="index.html">Home</a>
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
           <a href="#skills">Skills</a>
@@ -348,8 +338,8 @@
         <div class="hero-text">
           <h1>Hello, I’m Ahmet Ege Baykoz</h1>
           <p>
-            Computer Science student at York University. This portfolio presents my
-            progress in web development, JavaScript fundamentals, and computer science maths.
+            Computer Science student at York University. This portfolio shows my
+            progress in web development, JavaScript fundamentals, and CS maths.
           </p>
 
           <div class="hero-badges">
@@ -367,6 +357,7 @@
             <li>Interested in web development and CS maths</li>
             <li>Supports: Galatasaray</li>
             <li>Email: ahmetbaykoz2006@gmail.com</li>
+            <li>Instagram: @baykoz_ahmet</li>
           </ul>
           <a class="button" href="#contact">Get In Touch</a>
         </div>
@@ -375,7 +366,6 @@
   </header>
 
   <main class="container">
-
     <section id="about">
       <h2>About Me</h2>
       <p class="section-intro">
@@ -389,8 +379,7 @@
         </p>
         <p>
           My goal is to improve both my programming knowledge and my ability to build
-          practical, user-friendly web projects. I am also a <strong>Galatasaray supporter</strong>
-          and I enjoy combining personal identity with professional development in my portfolio.
+          practical, user-friendly web projects.
         </p>
       </div>
     </section>
@@ -451,26 +440,13 @@
 
         <p>
           What I actually changed this week was improving the structure of my homepage
-          with clear navigation and a more professional layout. I also added a Production
-          Diary section to reflect on my learning process.
+          with clear navigation and a more professional layout.
         </p>
 
         <p>
           The achievement I am most proud of is successfully publishing my portfolio online.
           Seeing my work live through GitHub Pages helped me feel more confident about
           web development.
-        </p>
-
-        <p>
-          The most challenging part was understanding GitHub commits and how updates are
-          pushed correctly. I also found it difficult at first to organise HTML content
-          into clean sections.
-        </p>
-
-        <p>
-          From this work, I learned more about website structure, layout, and how basic
-          JavaScript can be used for interactive tools. I also connected this to CS maths,
-          especially binary representation, which is essential in computing.
         </p>
 
         <p>
@@ -488,44 +464,26 @@
 
       <ul class="contact-list">
         <li>Email: <a href="mailto:ahmetbaykoz2006@gmail.com">ahmetbaykoz2006@gmail.com</a></li>
-        <li>Instagram: <a href="https://www.instagram.com/baykoz_ahmet" target="_blank">@baykoz_ahmet</a></li>
+        <li>Instagram: <a href="https://www.instagram.com/baykoz_ahmet" target="_blank">instagram.com/baykoz_ahmet</a></li>
         <li>Snapchat: baykozahmet</li>
-        <li>LinkedIn: <a href="https://www.linkedin.com/in/ahmet-baykoz-6897b635b/" target="_blank">View Profile</a></li>
+        <li>LinkedIn: <a href="https://www.linkedin.com/in/ahmet-baykoz-6897b635b/" target="_blank">linkedin.com/in/ahmet-baykoz-6897b635b</a></li>
         <li>Supported Team: Galatasaray</li>
       </ul>
 
       <form id="contact-form">
         <div>
           <label for="name">Your Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            placeholder="Jane Smith"
-          />
+          <input type="text" id="name" name="name" required placeholder="Jane Smith" />
         </div>
 
         <div>
           <label for="email">Your Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            placeholder="jane@example.com"
-          />
+          <input type="email" id="email" name="email" required placeholder="jane@example.com" />
         </div>
 
         <div>
           <label for="message">Message</label>
-          <textarea
-            id="message"
-            name="message"
-            required
-            rows="6"
-            placeholder="Say hello..."
-          ></textarea>
+          <textarea id="message" name="message" required rows="6" placeholder="Say hello..."></textarea>
         </div>
 
         <div>
@@ -576,13 +534,10 @@
           status.style.color = "#15803d";
           event.target.reset();
         } else {
-          const err = await response.json();
-          console.error("Supabase error:", err);
           status.textContent = "Something went wrong. Please try again.";
           status.style.color = "#dc2626";
         }
-      } catch (networkError) {
-        console.error("Network error:", networkError);
+      } catch (error) {
         status.textContent = "Could not connect. Check your internet connection.";
         status.style.color = "#dc2626";
       } finally {
