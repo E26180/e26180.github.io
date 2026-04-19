@@ -499,52 +499,68 @@
     <p>© 2026 Ahmet Ege Baykoz | GitHub Pages Portfolio</p>
   </footer>
 
-  <script>
-    const SUPABASE_URL = "https://oqfoflykoungqahdbozo.supabase.co";
-    const SUPABASE_ANON = "sb_publishable_DKsLh2HQNqr367YFCVSfmg_Nf7VUFuN";
+ <script type="module">
+  import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 
-    document.getElementById("contact-form").addEventListener("submit", async function (event) {
-      event.preventDefault();
+  const SUPABASE_URL = "https://oqfoflykoungqahdbozo.supabase.co";
+  const SUPABASE_ANON_KEY = "sb_publishable_DKsLh2HQNqr367YFCVSfmg_Nf7VUFuN";
 
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const message = document.getElementById("message").value.trim();
+  const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-      const btn = document.getElementById("submit-btn");
-      const status = document.getElementById("form-status");
+  const form = document.getElementById("contact-form");
+  const btn = document.getElementById("submit-btn");
+  const status = document.getElementById("form-status");
 
-      btn.disabled = true;
-      btn.textContent = "Sending...";
-      status.textContent = "";
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
 
-      try {
-        const response = await fetch(`${SUPABASE_URL}/rest/v1/contacts`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "apikey": SUPABASE_ANON,
-            "Authorization": `Bearer ${SUPABASE_ANON}`,
-            "Prefer": "return=minimal"
-          },
-          body: JSON.stringify({ name, email, message })
-        });
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
 
-        if (response.ok) {
-          status.textContent = "✓ Message sent! I will be in touch soon.";
-          status.style.color = "#15803d";
-          event.target.reset();
-        } else {
-          status.textContent = "Something went wrong. Please try again.";
-          status.style.color = "#dc2626";
-        }
-      } catch (error) {
-        status.textContent = "Could not connect. Check your internet connection.";
-        status.style.color = "#dc2626";
-      } finally {
-        btn.disabled = false;
-        btn.textContent = "Send Message";
-      }
-    });
-  </script>
+    status.textContent = "";
+    status.style.color = "";
+
+    if (name.length < 2) {
+      status.textContent = "Name must be at least 2 characters.";
+      status.style.color = "#dc2626";
+      return;
+    }
+
+    if (!email.includes("@") || !email.includes(".")) {
+      status.textContent = "Please enter a valid email address.";
+      status.style.color = "#dc2626";
+      return;
+    }
+
+    if (message.length < 5) {
+      status.textContent = "Message must be at least 5 characters.";
+      status.style.color = "#dc2626";
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = "Sending...";
+
+    try {
+      const { error } = await supabase
+        .from("contacts")
+        .insert([{ name, email, message }]);
+
+      if (error) throw error;
+
+      status.textContent = "✓ Message sent! I will be in touch soon.";
+      status.style.color = "#15803d";
+      form.reset();
+    } catch (error) {
+      status.textContent = "Something went wrong. Please try again.";
+      status.style.color = "#dc2626";
+      console.error(error);
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "Send Message";
+    }
+  });
+</script>
 </body>
 </html>
