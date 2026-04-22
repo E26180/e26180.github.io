@@ -28,14 +28,15 @@
           <h1>Hello, I’m Ahmet Ege Baykoz</h1>
           <p>
             Computer Science student at York University. This portfolio shows my
-            progress in web development, JavaScript fundamentals, and CS maths.
+            progress in web development, JavaScript fundamentals, user-focused design,
+            and computer science maths.
           </p>
 
           <div class="hero-badges">
             <span class="badge">York University</span>
             <span class="badge">Computer Science</span>
             <span class="badge">GitHub Pages</span>
-            <span class="badge">Galatasaray Supporter</span>
+            <span class="badge">Responsive Design</span>
           </div>
         </div>
 
@@ -44,9 +45,8 @@
           <ul>
             <li>Student at York University</li>
             <li>Interested in web development and CS maths</li>
-            <li>Supports: Galatasaray</li>
             <li>Email: ahmetbaykoz2006@gmail.com</li>
-            <li>Instagram: @baykoz_ahmet</li>
+            <li>LinkedIn and Instagram available below</li>
           </ul>
           <a class="button" href="#contact">Get In Touch</a>
         </div>
@@ -116,8 +116,9 @@
     </section>
 
     <section id="production-diary">
-      <h2>Production Diary – Week 15</h2>
-      <div class="diary">
+      <h2>Production Diary</h2>
+
+      <div class="diary" style="margin-bottom: 18px;">
         <div class="date">10 February 2026</div>
 
         <p>
@@ -137,10 +138,37 @@
           Seeing my work live through GitHub Pages helped me feel more confident about
           web development.
         </p>
+      </div>
+
+      <div class="diary">
+        <div class="date">18 March 2026</div>
 
         <p>
-          Next week, I want to improve my portfolio by adding more projects and expanding
-          my Maths & Tools page with at least one more interactive JavaScript feature.
+          This week I reviewed my portfolio using Nielsen’s usability heuristics and made
+          three important improvements.
+        </p>
+
+        <p>
+          <strong>1. Visibility of system status:</strong> I improved navigation by adding
+          a clearer active page style, so users can immediately understand where they are
+          on the site. I also kept the contact form feedback message clear after submission.
+        </p>
+
+        <p>
+          <strong>2. Consistency and standards:</strong> I removed unnecessary personal
+          details and made the contact section more consistent by keeping the same style for
+          links, buttons, cards, and layout across the site.
+        </p>
+
+        <p>
+          <strong>3. Error prevention and help:</strong> I improved validation in the
+          contact form and on the Maths & Tools page, so users receive clearer guidance if
+          they enter incorrect information.
+        </p>
+
+        <p>
+          These changes made the website look more professional, easier to understand, and
+          more user-friendly on both desktop and mobile devices.
         </p>
       </div>
     </section>
@@ -154,7 +182,6 @@
       <ul class="contact-list">
         <li>Email: <a href="mailto:ahmetbaykoz2006@gmail.com">ahmetbaykoz2006@gmail.com</a></li>
         <li>Instagram: <a href="https://www.instagram.com/baykoz_ahmet" target="_blank" rel="noopener noreferrer">instagram.com/baykoz_ahmet</a></li>
-        <li>Snapchat: baykozahmet</li>
         <li>LinkedIn: <a href="https://www.linkedin.com/in/ahmet-baykoz-6897b635b/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ahmet-baykoz-6897b635b</a></li>
       </ul>
 
@@ -211,19 +238,19 @@
 
       if (name.length < 2) {
         status.textContent = "Name must be at least 2 characters.";
-        status.style.color = "#dc2626";
+        status.style.color = "#ef4444";
         return;
       }
 
       if (!email.includes("@") || !email.includes(".")) {
         status.textContent = "Please enter a valid email address.";
-        status.style.color = "#dc2626";
+        status.style.color = "#ef4444";
         return;
       }
 
       if (message.length < 5) {
         status.textContent = "Message must be at least 5 characters.";
-        status.style.color = "#dc2626";
+        status.style.color = "#ef4444";
         return;
       }
 
@@ -238,11 +265,11 @@
         if (error) throw error;
 
         status.textContent = "✓ Message sent! I will be in touch soon.";
-        status.style.color = "#15803d";
+        status.style.color = "#22c55e";
         form.reset();
       } catch (error) {
         status.textContent = "Something went wrong. Please try again.";
-        status.style.color = "#dc2626";
+        status.style.color = "#ef4444";
         console.error(error);
       } finally {
         btn.disabled = false;
