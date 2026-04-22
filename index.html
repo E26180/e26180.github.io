@@ -13,7 +13,7 @@
       <div class="topbar">
         <div class="brand">Ahmet Ege Baykoz</div>
         <nav>
-          <a href="index.html">Home</a>
+          <a href="index.html" class="active">Home</a>
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
           <a href="#skills">Skills</a>
@@ -153,21 +153,20 @@
 
       <ul class="contact-list">
         <li>Email: <a href="mailto:ahmetbaykoz2006@gmail.com">ahmetbaykoz2006@gmail.com</a></li>
-        <li>Instagram: <a href="https://www.instagram.com/baykoz_ahmet" target="_blank">instagram.com/baykoz_ahmet</a></li>
+        <li>Instagram: <a href="https://www.instagram.com/baykoz_ahmet" target="_blank" rel="noopener noreferrer">instagram.com/baykoz_ahmet</a></li>
         <li>Snapchat: baykozahmet</li>
-        <li>LinkedIn: <a href="https://www.linkedin.com/in/ahmet-baykoz-6897b635b/" target="_blank">linkedin.com/in/ahmet-baykoz-6897b635b</a></li>
-        <li>Supported Team: Galatasaray</li>
+        <li>LinkedIn: <a href="https://www.linkedin.com/in/ahmet-baykoz-6897b635b/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ahmet-baykoz-6897b635b</a></li>
       </ul>
 
       <form id="contact-form">
         <div>
           <label for="name">Your Name</label>
-          <input type="text" id="name" name="name" required placeholder="Jane Smith" />
+          <input type="text" id="name" name="name" required placeholder="Jane Smith">
         </div>
 
         <div>
           <label for="email">Your Email</label>
-          <input type="email" id="email" name="email" required placeholder="jane@example.com" />
+          <input type="email" id="email" name="email" required placeholder="jane@example.com">
         </div>
 
         <div>
@@ -188,68 +187,68 @@
     <p>© 2026 Ahmet Ege Baykoz | GitHub Pages Portfolio</p>
   </footer>
 
- <script type="module">
-  import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+  <script type="module">
+    import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 
-  const SUPABASE_URL = "https://oqfoflykoungqahdbozo.supabase.co";
-  const SUPABASE_ANON_KEY = "sb_publishable_DKsLh2HQNqr367YFCVSfmg_Nf7VUFuN";
+    const SUPABASE_URL = "https://oqfoflykoungqahdbozo.supabase.co";
+    const SUPABASE_ANON_KEY = "sb_publishable_DKsLh2HQNqr367YFCVSfmg_Nf7VUFuN";
 
-  const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  const form = document.getElementById("contact-form");
-  const btn = document.getElementById("submit-btn");
-  const status = document.getElementById("form-status");
+    const form = document.getElementById("contact-form");
+    const btn = document.getElementById("submit-btn");
+    const status = document.getElementById("form-status");
 
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const message = document.getElementById("message").value.trim();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
 
-    status.textContent = "";
-    status.style.color = "";
+      status.textContent = "";
+      status.style.color = "";
 
-    if (name.length < 2) {
-      status.textContent = "Name must be at least 2 characters.";
-      status.style.color = "#dc2626";
-      return;
-    }
+      if (name.length < 2) {
+        status.textContent = "Name must be at least 2 characters.";
+        status.style.color = "#dc2626";
+        return;
+      }
 
-    if (!email.includes("@") || !email.includes(".")) {
-      status.textContent = "Please enter a valid email address.";
-      status.style.color = "#dc2626";
-      return;
-    }
+      if (!email.includes("@") || !email.includes(".")) {
+        status.textContent = "Please enter a valid email address.";
+        status.style.color = "#dc2626";
+        return;
+      }
 
-    if (message.length < 5) {
-      status.textContent = "Message must be at least 5 characters.";
-      status.style.color = "#dc2626";
-      return;
-    }
+      if (message.length < 5) {
+        status.textContent = "Message must be at least 5 characters.";
+        status.style.color = "#dc2626";
+        return;
+      }
 
-    btn.disabled = true;
-    btn.textContent = "Sending...";
+      btn.disabled = true;
+      btn.textContent = "Sending...";
 
-    try {
-      const { error } = await supabase
-        .from("contacts")
-        .insert([{ name, email, message }]);
+      try {
+        const { error } = await supabase
+          .from("contacts")
+          .insert([{ name, email, message }]);
 
-      if (error) throw error;
+        if (error) throw error;
 
-      status.textContent = "✓ Message sent! I will be in touch soon.";
-      status.style.color = "#15803d";
-      form.reset();
-    } catch (error) {
-      status.textContent = "Something went wrong. Please try again.";
-      status.style.color = "#dc2626";
-      console.error(error);
-    } finally {
-      btn.disabled = false;
-      btn.textContent = "Send Message";
-    }
-  });
-</script>
+        status.textContent = "✓ Message sent! I will be in touch soon.";
+        status.style.color = "#15803d";
+        form.reset();
+      } catch (error) {
+        status.textContent = "Something went wrong. Please try again.";
+        status.style.color = "#dc2626";
+        console.error(error);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Send Message";
+      }
+    });
+  </script>
 </body>
 </html>
