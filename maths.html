@@ -24,11 +24,14 @@
       </div>
 
       <div class="hero">
-        <h1>CS Maths & Tools</h1>
-        <p>
-          This page contains simple computer science maths tools and explanations.
-          It currently includes a binary conversion tool and a short explanation of why binary is important in computing.
-        </p>
+        <div class="hero-text">
+          <h1>CS Maths & Tools</h1>
+          <p>
+            This page contains simple computer science maths tools and explanations.
+            It currently includes a binary conversion tool and a short explanation
+            of why binary is important in computing.
+          </p>
+        </div>
       </div>
     </div>
   </header>
@@ -38,15 +41,21 @@
       <h2>Decimal to Binary Converter</h2>
       <p>
         In computer science, numbers are often represented in binary (base 2).
-        This tool converts a decimal (base 10) number into binary.
+        This tool converts a decimal number into binary.
       </p>
 
       <div class="tool-box">
         <label for="decimalInput">Enter a decimal number:</label>
-        <input type="number" id="decimalInput" placeholder="Example: 13" />
+        <input
+          type="number"
+          id="decimalInput"
+          placeholder="Example: 13"
+          min="0"
+          step="1"
+        />
         <p class="small-note">Please enter a whole number only.</p>
 
-        <button onclick="convertToBinary()">Convert</button>
+        <button type="button" onclick="convertToBinary()">Convert</button>
 
         <div class="result" id="binaryResult">Your result will appear here.</div>
       </div>
@@ -55,17 +64,17 @@
     <section>
       <h2>Why Binary is Important</h2>
       <p>
-        Binary representation is essential in computing because computers store and
-        process data using only two states: 0 and 1. Understanding binary helps explain
-        how memory, logic, and digital systems work.
+        Binary is essential in computing because computers work using two states:
+        on and off, which are represented as 1 and 0. This makes binary the basic
+        language of digital systems, memory, and logic operations.
       </p>
     </section>
 
     <section>
-      <h2>More Tools Coming Soon</h2>
+      <h2>Future Improvements</h2>
       <p>
-        In the future, I plan to add more interactive tools such as logic operations,
-        number system conversions, and combination calculators.
+        In the future, I plan to add more interactive tools such as hexadecimal
+        conversion, logic gate examples, and other small computer science maths tools.
       </p>
     </section>
   </main>
@@ -76,29 +85,29 @@
 
   <script>
     function convertToBinary() {
-      const decimalValue = document.getElementById("decimalInput").value.trim();
+      const input = document.getElementById("decimalInput").value.trim();
       const result = document.getElementById("binaryResult");
 
-      if (decimalValue === "") {
-        result.innerHTML = "Please enter a number first.";
+      if (input === "") {
+        result.textContent = "Please enter a number first.";
         return;
       }
 
-      const number = Number(decimalValue);
+      const number = Number(input);
 
       if (!Number.isInteger(number)) {
-        result.innerHTML = "Please enter a whole number only.";
+        result.textContent = "Please enter a whole number only.";
         return;
       }
 
       if (number < 0) {
-        result.innerHTML = "Please enter 0 or a positive whole number.";
+        result.textContent = "Please enter 0 or a positive whole number.";
         return;
       }
 
-      const binaryNumber = number.toString(2);
-      result.innerHTML = "Binary result: " + binaryNumber;
+      result.textContent = "Binary result: " + number.toString(2);
     }
   </script>
+
 </body>
 </html>
