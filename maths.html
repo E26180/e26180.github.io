@@ -1,112 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CS Maths & Tools | Ahmet Ege Baykoz</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A small interactive computer science maths tool by Ahmet Ege Baykoz.">
+  <meta name="theme-color" content="#07111f">
+  <title>CS Maths &amp; Tools | Ahmet Ege Baykoz</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <header>
+  <header class="site-header">
     <div class="container">
       <div class="topbar">
-        <div class="brand">Ahmet Ege Baykoz</div>
-        <nav>
-          <a href="index.html">Home</a>
+        <a class="brand" href="index.html" aria-label="Ahmet Ege Baykoz, home">
+          <span class="brand-mark" aria-hidden="true">AB</span>
+          <span>Ahmet Ege Baykoz</span>
+        </a>
+        <nav aria-label="Primary navigation">
           <a href="index.html#about">About</a>
           <a href="index.html#projects">Projects</a>
           <a href="index.html#skills">Skills</a>
-          <a href="maths.html" class="active">Maths & Tools</a>
-          <a href="index.html#production-diary">Production Diary</a>
+          <a href="maths.html" class="active" aria-current="page">Maths tool</a>
           <a href="index.html#contact">Contact</a>
         </nav>
       </div>
 
       <div class="hero">
         <div class="hero-text">
-          <h1>CS Maths & Tools</h1>
-          <p>
-            This page contains simple computer science maths tools and explanations.
-            It currently includes a binary conversion tool and a short explanation
-            of why binary is important in computing.
+          <p class="eyebrow">Interactive learning project</p>
+          <h1>CS Maths &amp; Tools</h1>
+          <p class="hero-lead">
+            A focused browser-based project for exploring number representation and
+            practising clear input validation with JavaScript.
           </p>
+          <div class="hero-actions">
+            <a class="button button-secondary" href="index.html#projects">← Back to portfolio</a>
+          </div>
         </div>
+        <aside class="hero-card" aria-label="Project details">
+          <p class="card-kicker">Project details</p>
+          <dl class="profile-list">
+            <div><dt>Built with</dt><dd>HTML · CSS · JavaScript</dd></div>
+            <div><dt>Demonstrates</dt><dd>Input validation · DOM updates · Binary</dd></div>
+            <div><dt>Status</dt><dd>Working learning project</dd></div>
+          </dl>
+        </aside>
       </div>
     </div>
   </header>
 
-  <main class="container">
-    <section>
-      <h2>Decimal to Binary Converter</h2>
-      <p>
-        In computer science, numbers are often represented in binary (base 2).
-        This tool converts a decimal number into binary.
-      </p>
-
+  <main id="main-content" class="container">
+    <section class="section-shell split-section">
+      <div>
+        <p class="section-label">Try it</p>
+        <h2>Decimal to binary converter</h2>
+      </div>
       <div class="tool-box">
-        <label for="decimalInput">Enter a decimal number:</label>
-        <input
-          type="number"
-          id="decimalInput"
-          placeholder="Example: 13"
-          min="0"
-          step="1"
-        />
-        <p class="small-note">Please enter a whole number only.</p>
-
-        <button type="button" onclick="convertToBinary()">Convert</button>
-
-        <div class="result" id="binaryResult">Your result will appear here.</div>
+        <label for="decimalInput">Enter a non-negative whole number</label>
+        <input type="number" id="decimalInput" placeholder="Example: 13" min="0" step="1" inputmode="numeric">
+        <p class="small-note">The result is calculated in your browser.</p>
+        <button type="button" id="convert-button">Convert to binary</button>
+        <div class="result" id="binaryResult" role="status" aria-live="polite">Your result will appear here.</div>
       </div>
     </section>
 
-    <section>
-      <h2>Why Binary is Important</h2>
-      <p>
-        Binary is essential in computing because computers work using two states:
-        on and off, which are represented as 1 and 0. This makes binary the basic
-        language of digital systems, memory, and logic operations.
-      </p>
-    </section>
-
-    <section>
-      <h2>Future Improvements</h2>
-      <p>
-        In the future, I plan to add more interactive tools such as hexadecimal
-        conversion, logic gate examples, and other small computer science maths tools.
-      </p>
+    <section class="section-shell split-section">
+      <div>
+        <p class="section-label">Concept</p>
+        <h2>Why binary matters</h2>
+      </div>
+      <div class="section-copy">
+        <p>
+          Computers represent information using two states, commonly written as 0 and 1.
+          Binary therefore underpins digital logic, data storage, machine instructions and
+          the way values are represented in memory.
+        </p>
+        <p>
+          This small project connects that concept to a practical interaction: validating a
+          decimal input, converting it to base 2 and presenting the result clearly.
+        </p>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>© 2026 Ahmet Ege Baykoz | CS Maths & Tools Page</p>
+    <div class="container footer-inner">
+      <p>© 2026 Ahmet Ege Baykoz</p>
+      <p>Computer Science with Cyber Security · University of York</p>
+    </div>
   </footer>
 
   <script>
-    function convertToBinary() {
-      const input = document.getElementById("decimalInput").value.trim();
-      const result = document.getElementById("binaryResult");
+    const input = document.getElementById("decimalInput");
+    const button = document.getElementById("convert-button");
+    const result = document.getElementById("binaryResult");
 
-      if (input === "") {
+    function convertToBinary() {
+      const value = input.value.trim();
+      if (value === "") {
         result.textContent = "Please enter a number first.";
         return;
       }
 
-      const number = Number(input);
-
-      if (!Number.isInteger(number)) {
-        result.textContent = "Please enter a whole number only.";
-        return;
-      }
-
-      if (number < 0) {
+      const number = Number(value);
+      if (!Number.isInteger(number) || number < 0) {
         result.textContent = "Please enter 0 or a positive whole number.";
         return;
       }
 
-      result.textContent = "Binary result: " + number.toString(2);
+      result.textContent = `${number} in binary is ${number.toString(2)}.`;
     }
+
+    button.addEventListener("click", convertToBinary);
+    input.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") convertToBinary();
+    });
   </script>
 </body>
 </html>
