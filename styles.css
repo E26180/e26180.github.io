@@ -721,3 +721,59 @@ footer {
     animation-iteration-count: 1 !important;
   }
 }
+
+/* Pusula project card (wide card with trailer preview) */
+.project-wide {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.project-wide-text {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+.project-wide-text > p {
+  color: var(--muted);
+}
+
+.project-wide-text strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.project-note {
+  margin: 0 0 14px;
+  font-size: 0.88rem;
+}
+
+.project-media {
+  margin: 0;
+}
+
+.project-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  background: #111113;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.project-media figcaption {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 850px) {
+  .project-wide {
+    grid-column: span 1;
+    grid-template-columns: 1fr;
+  }
+}
