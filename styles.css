@@ -72,6 +72,7 @@ html {
 
 body {
   margin: 0;
+  overflow-x: clip; /* the swinging pass may cross the edge; never let it cause sideways scrolling */
   color: var(--text);
   font-family: var(--sans);
   font-size: 1rem;
@@ -511,7 +512,6 @@ kbd {
 .hero-badge {
   position: relative;
   height: 560px;
-  overflow-x: clip;
   margin-top: calc(-1 * clamp(40px, 8vw, 96px));
 }
 
@@ -968,12 +968,12 @@ kbd {
 
 .diagram-narrow .packet-allow {
   --rx: 0px;
-  --ry: 262px;
+  --ry: 232px;
 }
 
 .diagram-narrow .packet-deny {
   --rx: 0px;
-  --ry: 166px;
+  --ry: 120px;
 }
 
 .lab-more {
@@ -1594,12 +1594,7 @@ kbd {
   }
 
   .hero-badge {
-    height: 430px;
-  }
-
-  .badge {
-    width: 212px;
-    height: 300px;
+    height: 440px;
   }
 
   .skills {

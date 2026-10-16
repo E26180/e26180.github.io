@@ -31,12 +31,10 @@ function measure() {
   const r = lanyard.getBoundingClientRect();
   box = { w: r.width, h: r.height };
   card = { w: badge.offsetWidth, h: badge.offsetHeight };
-  const oldX = anchor.x;
   anchor = { x: box.w / 2, y: -48 };
   const restClip = Math.max(70, box.h - card.h - 48);
   ropeLen = restClip - anchor.y;
   seg = ropeLen / (N - 1);
-  if (pts.length) pts.forEach((p) => { p.x += anchor.x - oldX; p.px += anchor.x - oldX; });
 }
 
 function layout(startAngle) {
@@ -202,10 +200,14 @@ function start() {
 
 if (lanyard && badge && strap) {
   start();
+  // a new size changes the rope length, so restart from rest instead of snapping the strap
+  // (mobile browsers also fire resize when the address bar hides, so ignore same-size events)
   window.addEventListener("resize", () => {
+    const before = `${box.w}x${box.h}`;
     measure();
-    if (motion.matches) render();
-    else wake();
+    if (`${box.w}x${box.h}` === before) return;
+    layout(0);
+    render();
   });
   motion.addEventListener?.("change", () => {
     if (motion.matches) setStatic();
