@@ -127,3 +127,5 @@ initTheme();
 initTyping();
 initNav();
 
+// The lanyard is decorative, so it loads after the page is usable.
+if (document.getElementById("lanyard")) import("./badge.js");
