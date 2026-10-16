@@ -135,3 +135,17 @@ initNav();
 // The lanyard is decorative, so it loads after the page is usable.
 if (document.getElementById("lanyard")) import("./badge.js");
 if (document.getElementById("notebook-list")) import("./notebook.js");
+
+/* ---------- terminal (loaded on first use) ---------- */
+
+const termButton = document.getElementById("terminal-open");
+const openTerminal = async (from) => (await import("./terminal.js")).open(from);
+const isTyping = (t) => t instanceof HTMLElement && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName));
+
+termButton?.addEventListener("click", () => openTerminal(termButton));
+document.addEventListener("keydown", (e) => {
+  if (e.key !== "`" || e.metaKey || e.ctrlKey || e.altKey || isTyping(e.target)) return;
+  if (document.getElementById("terminal")?.open) return;
+  e.preventDefault();
+  openTerminal(termButton);
+});
