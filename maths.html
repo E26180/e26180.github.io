@@ -3,32 +3,36 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-opRjTqQ1E5eUpc4SE9v3YoU5wuVpgtqT7zsobCj245Q='; style-src 'self'; img-src 'self'; connect-src 'self' https://api.github.com https://raw.githubusercontent.com; manifest-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-opRjTqQ1E5eUpc4SE9v3YoU5wuVpgtqT7zsobCj245Q='; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self' https://api.github.com https://raw.githubusercontent.com; manifest-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>CS Maths &amp; Tools · Ahmet Ege Baykoz</title>
   <meta name="description" content="A small interactive computer science maths tool by Ahmet Ege Baykoz: a decimal to binary converter with input validation.">
   <link rel="canonical" href="https://e26180.github.io/maths.html">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <meta name="theme-color" content="#070b12">
   <meta name="color-scheme" content="dark light">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/instrument-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/instrument-serif-latin-400-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/geist-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
-  <link rel="stylesheet" href="styles.css">
-  <script type="module" src="assets/js/main.js"></script>
-  <script type="module" src="assets/js/maths.js"></script>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/assets/js/main.js"></script>
+  <script type="module" src="/assets/js/maths.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
     <div class="wrap header-inner">
-      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">AEB</span>Ahmet Ege Baykoz</a>
+      <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">AEB</span>Ahmet Ege Baykoz</a>
       <nav class="site-nav" aria-label="Primary">
-        <a href="index.html#lab">Lab</a>
-        <a href="index.html#work">Work</a>
-        <a href="index.html#skills">Skills</a>
-        <a href="index.html#timeline">Timeline</a>
+        <a href="/lab/">Lab</a>
+        <a href="/#work">Work</a>
+        <a href="/#skills">Skills</a>
+        <a href="/#timeline">Timeline</a>
       </nav>
       <div class="header-actions">
         <button class="icon-btn" id="theme-toggle" type="button" aria-pressed="false">
@@ -40,27 +44,27 @@
     </div>
   </header>
 
-  <main id="main" class="wrap page">
-    <p class="path">~/work/earlier · interactive learning project</p>
-    <h1>CS Maths &amp; Tools</h1>
-    <p class="lead">A small browser-based project for exploring number representation and practising clear input validation with JavaScript.</p>
+  <main id="main" class="page wrap">
+    <p class="eyebrow">Earlier project · interactive learning</p>
+    <h1 class="display display-sm">CS Maths &amp; <em>Tools</em></h1>
+    <p class="lede">A small browser-based project for exploring number representation and practising clear input validation with JavaScript.</p>
 
-    <section class="tool card" aria-labelledby="tool-title">
-      <h2 id="tool-title" class="label">Decimal to binary converter</h2>
+    <section class="tool" aria-labelledby="tool-title">
+      <h2 id="tool-title" class="eyebrow">Decimal to binary converter</h2>
       <label for="decimal-input">Enter a non-negative whole number</label>
       <div class="tool-row">
         <input type="text" id="decimal-input" inputmode="numeric" autocomplete="off" placeholder="Example: 13" aria-describedby="tool-note">
-        <button class="btn btn-primary" type="button" id="convert-button">Convert to binary</button>
+        <button class="btn" type="button" id="convert-button">Convert to binary</button>
       </div>
       <p class="tool-note" id="tool-note">The result is calculated in your browser.</p>
       <p class="tool-result" id="binary-result" role="status" aria-live="polite">Your result will appear here.</p>
     </section>
 
     <section class="prose" aria-labelledby="why-title">
-      <h2 id="why-title">Why binary matters</h2>
+      <h2 class="h2" id="why-title">Why binary <em>matters</em></h2>
       <p>Computers represent information using two states, commonly written as 0 and 1. Binary therefore underpins digital logic, data storage, machine instructions and the way values are represented in memory.</p>
       <p>This small project connects that concept to a practical interaction: validating a decimal input, converting it to base 2 and presenting the result clearly.</p>
-      <p><a href="index.html#work">← Back to the portfolio</a></p>
+      <p><a href="/#work">← Back to the portfolio</a></p>
     </section>
   </main>
 
