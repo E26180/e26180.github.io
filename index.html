@@ -91,6 +91,169 @@
         </div>
       </div>
     </section>
+
+    <section class="section" id="lab" aria-labelledby="lab-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="path">~/lab · flagship project</p>
+          <h2 id="lab-title">Network &amp; Firewall Lab</h2>
+          <p>A home lab I built to learn networking and host security by testing things myself and watching the traffic. An Ubuntu VM in UTM is the server, my Mac is the client, and every conclusion is backed by a packet capture or command output.</p>
+          <div class="lab-meta">
+            <span class="chip chip-allow">status: ongoing</span>
+            <span class="chip">4 labs so far</span>
+            <span class="chip">started October 2026</span>
+          </div>
+        </div>
+
+        <figure class="diagram card">
+          <svg class="diagram-wide" viewBox="0 0 1000 330" role="img" aria-labelledby="dg-title" aria-describedby="dg-desc">
+            <title id="dg-title">Lab network diagram</title>
+            <desc id="dg-desc">The macOS host sends HTTP requests to port 8000 through the UTM virtual bridge bridge100. On the Ubuntu VM at 192.168.64.2, the UFW firewall either drops the request under the default-deny policy or lets it through to python3 http.server on port 8000. The VM gets its DHCP lease and DNS from the gateway at 192.168.64.1, which also answers ARP and leads to the internet.</desc>
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow" d="M0 0 10 5 0 10z"/></marker>
+              <marker id="arrow-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow-dim" d="M0 0 10 5 0 10z"/></marker>
+            </defs>
+            <rect class="dg-box" x="20" y="40" width="230" height="150" rx="12"/>
+            <text class="dg-title" x="40" y="72">macOS host · client</text>
+            <text class="dg-text" x="40" y="102">curl · Safari</text>
+            <text class="dg-text" x="40" y="124">Wireshark</text>
+            <text class="dg-text" x="40" y="146">arp -a</text>
+
+            <rect class="dg-box" x="296" y="88" width="160" height="56" rx="10"/>
+            <text class="dg-title" x="312" y="112">bridge100</text>
+            <text class="dg-small" x="312" y="132">UTM virtual bridge</text>
+
+            <rect class="dg-box" x="500" y="20" width="480" height="210" rx="14"/>
+            <text class="dg-title" x="520" y="50">Ubuntu VM · server</text>
+            <text class="dg-small" x="520" y="70">enp0s1 · 192.168.64.2/24</text>
+            <rect class="dg-box dg-box-wall" x="528" y="84" width="120" height="96" rx="10"/>
+            <text class="dg-title" x="544" y="112">UFW</text>
+            <text class="dg-small" x="544" y="134">default deny</text>
+            <text class="dg-small" x="544" y="152">incoming</text>
+            <rect class="dg-box dg-box-ok" x="700" y="88" width="258" height="56" rx="10"/>
+            <text class="dg-title" x="716" y="112">python3 -m http.server</text>
+            <text class="dg-small" x="716" y="132">listening on :8000</text>
+            <text class="dg-small" x="520" y="212">tools: tcpdump · ip · nmcli · resolvectl</text>
+
+            <path class="dg-flow" d="M250 116H296M456 116H528M648 116H700" marker-end="url(#arrow)"/>
+            <text class="dg-label" x="300" y="78">HTTP :8000</text>
+
+            <path class="dg-line dg-dashed" d="M740 230V262" marker-end="url(#arrow-dim)"/>
+            <text class="dg-small" x="752" y="252">DHCP lease · DNS · ARP</text>
+            <rect class="dg-box dg-box-accent" x="560" y="264" width="300" height="56" rx="10"/>
+            <text class="dg-title" x="578" y="288">Gateway · DHCP · DNS</text>
+            <text class="dg-small" x="578" y="308">192.168.64.1</text>
+            <path class="dg-line" d="M860 292H930" marker-end="url(#arrow-dim)"/>
+            <text class="dg-text" x="936" y="296">Internet</text>
+
+            <circle class="packet packet-allow" cx="258" cy="116" r="6"/>
+            <circle class="packet packet-deny" cx="258" cy="116" r="6"/>
+          </svg>
+
+          <svg class="diagram-narrow" viewBox="0 0 340 580" role="img" aria-labelledby="dgn-title" aria-describedby="dg-desc">
+            <title id="dgn-title">Lab network diagram</title>
+            <defs>
+              <marker id="arrow-n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow" d="M0 0 10 5 0 10z"/></marker>
+              <marker id="arrow-n-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow-dim" d="M0 0 10 5 0 10z"/></marker>
+            </defs>
+            <rect class="dg-box" x="10" y="8" width="320" height="76" rx="12"/>
+            <text class="dg-title" x="28" y="38">macOS host · client</text>
+            <text class="dg-small" x="28" y="62">curl · Safari · Wireshark · arp -a</text>
+            <text class="dg-label" x="182" y="106">HTTP :8000</text>
+            <rect class="dg-box" x="90" y="118" width="160" height="50" rx="10"/>
+            <text class="dg-title" x="106" y="140">bridge100</text>
+            <text class="dg-small" x="106" y="158">UTM virtual bridge</text>
+            <rect class="dg-box" x="10" y="196" width="320" height="262" rx="14"/>
+            <text class="dg-title" x="28" y="224">Ubuntu VM · server</text>
+            <text class="dg-small" x="28" y="244">enp0s1 · 192.168.64.2/24</text>
+            <rect class="dg-box dg-box-wall" x="40" y="262" width="260" height="56" rx="10"/>
+            <text class="dg-title" x="58" y="286">UFW</text>
+            <text class="dg-small" x="58" y="306">default deny incoming</text>
+            <rect class="dg-box dg-box-ok" x="40" y="340" width="260" height="56" rx="10"/>
+            <text class="dg-title" x="58" y="364">python3 -m http.server</text>
+            <text class="dg-small" x="58" y="384">listening on :8000</text>
+            <text class="dg-small" x="28" y="436">tcpdump · ip · nmcli · resolvectl</text>
+            <path class="dg-flow" d="M170 84V118M170 168V262M170 318V340" marker-end="url(#arrow-n)"/>
+            <path class="dg-line dg-dashed" d="M170 458V490" marker-end="url(#arrow-n-dim)"/>
+            <text class="dg-small" x="182" y="480">DHCP · DNS · ARP</text>
+            <rect class="dg-box dg-box-accent" x="40" y="492" width="260" height="56" rx="10"/>
+            <text class="dg-title" x="58" y="516">Gateway · DHCP · DNS</text>
+            <text class="dg-small" x="58" y="536">192.168.64.1 → internet</text>
+            <circle class="packet packet-allow" cx="170" cy="92" r="6"/>
+            <circle class="packet packet-deny" cx="170" cy="92" r="6"/>
+          </svg>
+          <figcaption><span class="chip chip-allow">● allowed</span> <code>ufw allow 8000/tcp</code>: full handshake and <code>200 OK</code>. <span class="chip chip-deny">● blocked</span> default deny: the <code>SYN</code> is dropped and retransmitted, with no reply.</figcaption>
+        </figure>
+
+        <ol class="labs">
+          <li class="lab-card card">
+            <p class="lab-top"><span>Lab #1 · 9 Oct 2026</span><span>Wireshark</span></p>
+            <h3>HTTP &amp; the TCP handshake</h3>
+            <dl class="lab-steps">
+              <div><dt>Question</dt><dd>What does a web request look like on the wire?</dd></div>
+              <div><dt>What I did</dt><dd>Served a page with <code>python3 -m http.server 8000</code> on the VM, requested it from the Mac with <code>curl</code> and Safari, read the server log and captured the traffic in Wireshark.</dd></div>
+              <div class="result"><dt>Key result</dt><dd>SYN → SYN-ACK → ACK, then GET / → 200 OK, all in plaintext</dd></div>
+              <div class="lesson"><dt>Security lesson</dt><dd>Plain HTTP is readable by anyone on the path, which is why HTTPS matters.</dd></div>
+            </dl>
+            <a class="ext" href="https://github.com/E26180/security-notes/blob/main/labs/2026-10-09-network-lab-1-http-wireshark.md" target="_blank" rel="noopener noreferrer">Read the Lab #1 write-up<span class="sr-only"> (opens in a new tab)</span></a>
+          </li>
+          <li class="lab-card card">
+            <p class="lab-top"><span>Lab #2 · 11 Oct 2026</span><span>UFW</span></p>
+            <h3>UFW firewall: blocked vs allowed</h3>
+            <dl class="lab-steps">
+              <div><dt>Question</dt><dd>What changes when a host firewall blocks a port?</dd></div>
+              <div><dt>What I did</dt><dd>Set UFW to default deny incoming, tested port 8000 blocked and then allowed with <code>ufw allow 8000/tcp</code>, read the UFW logs, captured both cases with <code>tcp.port == 8000</code> and reverted the changes.</dd></div>
+              <div class="result"><dt>Key result</dt><dd>Blocked: only SYN + retransmissions, no reply. Allowed: full handshake + 200 OK. UFW logs show SRC, DST, DPT, PROTO</dd></div>
+              <div class="lesson"><dt>Security lesson</dt><dd>A firewall acts before the application: a dropped port looks like silence, not an error. Default deny, then open only what a service needs.</dd></div>
+            </dl>
+            <a class="ext" href="https://github.com/E26180/security-notes/blob/main/labs/2026-10-11-network-lab-2-ufw-firewall.md" target="_blank" rel="noopener noreferrer">Read the Lab #2 write-up<span class="sr-only"> (opens in a new tab)</span></a>
+          </li>
+          <li class="lab-card card">
+            <p class="lab-top"><span>Lab #3 · 13 Oct 2026</span><span>DHCP · DNS</span></p>
+            <h3>Subnetting, DHCP &amp; DNS</h3>
+            <dl class="lab-steps">
+              <div><dt>Question</dt><dd>Where does the VM's network configuration come from?</dd></div>
+              <div><dt>What I did</dt><dd>Practised CIDR and subnet maths, then traced the VM's address, route, resolver and lease with <code>ip addr</code>, <code>ip route</code>, <code>resolvectl</code>, <code>nmcli</code> and <code>dig</code>.</dd></div>
+              <div class="result"><dt>Key result</dt><dd>DHCP gave IP, mask, gateway, DNS and a 1-hour lease; 127.0.0.53 is only a local DNS stub</dd></div>
+              <div class="lesson"><dt>Security lesson</dt><dd>Clients trust whatever DHCP and DNS tell them, so a rogue DHCP server or a spoofed DNS answer can silently redirect traffic.</dd></div>
+            </dl>
+            <a class="ext" href="https://github.com/E26180/security-notes/blob/main/labs/2026-10-13-network-lab-3-subnetting-dhcp-dns.md" target="_blank" rel="noopener noreferrer">Read the Lab #3 write-up<span class="sr-only"> (opens in a new tab)</span></a>
+          </li>
+          <li class="lab-card card">
+            <p class="lab-top"><span>Lab #4 · 16 Oct 2026</span><span>tcpdump</span></p>
+            <h3>ARP: from IP to MAC</h3>
+            <dl class="lab-steps">
+              <div><dt>Question</dt><dd>How does the VM find the gateway's MAC address?</dd></div>
+              <div><dt>What I did</dt><dd>Flushed the neighbour cache, pinged the gateway and captured with <code>tcpdump -i enp0s1 arp</code>, comparing <code>ip neigh</code> with the Mac's <code>arp -a</code>.</dd></div>
+              <div class="result"><dt>Key result</dt><dd>ARP Request (broadcast to ff:ff:ff:ff:ff:ff) → ARP Reply (unicast), captured in tcpdump</dd></div>
+              <div class="lesson"><dt>Security lesson</dt><dd>ARP has no authentication, which makes ARP spoofing and MITM possible. I studied the defences conceptually: Dynamic ARP Inspection and DHCP snooping. HTTPS and VPNs keep data encrypted but don't stop the spoofing.</dd></div>
+            </dl>
+            <a class="ext" href="https://github.com/E26180/security-notes/blob/main/labs/2026-10-16-network-lab-4-arp.md" target="_blank" rel="noopener noreferrer">Read the Lab #4 write-up<span class="sr-only"> (opens in a new tab)</span></a>
+          </li>
+        </ol>
+
+        <div class="lab-footnote">
+          <div class="card">
+            <h3>How I work</h3>
+            <ul>
+              <li>Verify, don't assume: every conclusion comes from a capture or a command output.</li>
+              <li>A write-up for every lab, including the mistakes I made and corrected.</li>
+              <li>Revert what I change, like disabling UFW again after Lab #2.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Next in the lab</h3>
+            <ul>
+              <li>Capture a DHCP lease renewal and a DNS query/response in Wireshark</li>
+              <li>Compare UFW <code>deny</code> (drop) with <code>reject</code> on the wire</li>
+              <li>Add a second VM to test traffic between two hosts</li>
+              <li>Move on to web security basics (OWASP Top 10)</li>
+            </ul>
+          </div>
+        </div>
+        <p class="lab-more"><a class="ext" href="https://github.com/E26180/security-notes/tree/main/projects/network-and-firewall-lab" target="_blank" rel="noopener noreferrer">Full project write-up on GitHub<span class="sr-only"> (opens in a new tab)</span></a></p>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">

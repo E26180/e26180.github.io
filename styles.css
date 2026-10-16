@@ -759,7 +759,7 @@ kbd {
   height: auto;
 }
 
-.diagram-narrow {
+.diagram .diagram-narrow {
   display: none;
 }
 
@@ -838,6 +838,11 @@ kbd {
   opacity: 0;
 }
 
+.packet {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
 .motion-ok .packet-allow {
   fill: var(--allow);
   animation: packet-allow 6s linear infinite;
@@ -849,17 +854,18 @@ kbd {
 }
 
 @keyframes packet-allow {
-  0% { opacity: 0; transform: translateX(0); }
+  0% { opacity: 0; transform: translate(0, 0); }
   4% { opacity: 1; }
-  44% { opacity: 1; transform: translateX(var(--run)); }
-  50%, 100% { opacity: 0; transform: translateX(var(--run)); }
+  44% { opacity: 1; transform: translate(var(--rx), var(--ry)); }
+  50%, 100% { opacity: 0; transform: translate(var(--rx), var(--ry)); }
 }
 
 @keyframes packet-deny {
-  0% { opacity: 0; transform: translateX(0); }
+  0% { opacity: 0; transform: translate(0, 0); }
   4% { opacity: 1; }
-  30% { opacity: 1; transform: translateX(var(--stop)); }
-  44%, 100% { opacity: 0; transform: translateX(var(--stop)); }
+  30% { opacity: 1; transform: translate(var(--rx), var(--ry)); }
+  34% { opacity: 1; transform: translate(var(--rx), var(--ry)) scale(1.6); }
+  44%, 100% { opacity: 0; transform: translate(var(--rx), var(--ry)) scale(0.4); }
 }
 
 .labs {
@@ -948,6 +954,31 @@ kbd {
   margin: 10px 0 0;
   padding-left: 18px;
   color: var(--muted);
+}
+
+.packet-allow {
+  --rx: 448px;
+  --ry: 0px;
+}
+
+.packet-deny {
+  --rx: 264px;
+  --ry: 0px;
+}
+
+.diagram-narrow .packet-allow {
+  --rx: 0px;
+  --ry: 262px;
+}
+
+.diagram-narrow .packet-deny {
+  --rx: 0px;
+  --ry: 166px;
+}
+
+.lab-more {
+  margin-top: 20px;
+  font-weight: 650;
 }
 
 /* ---------- notebook ---------- */
@@ -1503,11 +1534,11 @@ kbd {
     grid-template-columns: 1fr;
   }
 
-  .diagram-wide {
+  .diagram .diagram-wide {
     display: none;
   }
 
-  .diagram-narrow {
+  .diagram .diagram-narrow {
     display: block;
   }
 

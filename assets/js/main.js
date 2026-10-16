@@ -123,6 +123,11 @@ function initNav() {
   sections.forEach((s) => io.observe(s));
 }
 
+// CSS animations that are not essential (the diagram packets) only run with this class.
+const syncMotion = () => root.classList.toggle("motion-ok", !reducedMotion.matches);
+reducedMotion.addEventListener?.("change", syncMotion);
+syncMotion();
+
 initTheme();
 initTyping();
 initNav();
