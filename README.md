@@ -14,7 +14,7 @@ Source of [e26180.github.io](https://e26180.github.io/), the portfolio of a Year
 ## Security hygiene
 
 - Plain HTML, CSS and vanilla JavaScript: no build step, no frameworks, no third-party scripts, trackers or cookies
-- A Content-Security-Policy meta tag on every page: same-origin scripts plus one hashed inline theme snippet, no `unsafe-inline`, and network access limited to the GitHub API and raw files
+- A Content-Security-Policy meta tag on every page: same-origin scripts plus one hashed inline theme snippet, no `unsafe-inline`, and network access limited to the site itself, the GitHub API and raw files
 - `rel="noopener noreferrer"` on external links and a strict referrer policy
 - Remote text is inserted with `textContent`, never as HTML
 - [`/.well-known/security.txt`](https://e26180.github.io/.well-known/security.txt) (RFC 9116); `.nojekyll` lets GitHub Pages publish the dot-directory
