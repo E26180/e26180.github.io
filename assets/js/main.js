@@ -231,6 +231,12 @@ function initSmoothScroll() {
     target.setAttribute("tabindex", "-1");
     target.focus({ preventScroll: true });
   });
+  // the scene buttons in "Inside the Mac" ask for a scroll position
+  document.addEventListener("story:seek", (e) => {
+    if (!lenis) return;
+    e.preventDefault();
+    lenis.scrollTo(e.detail.top, { duration: 1.6 });
+  });
   // the terminal is a modal: freeze the page behind it
   document.addEventListener("terminal:open", () => lenis?.stop());
   document.addEventListener("terminal:close", () => lenis?.start());
@@ -267,5 +273,6 @@ initTerminal();
 
 // page-specific modules load only where they are used
 if (document.getElementById("lanyard")) import("./badge.js");
+if (document.getElementById("stage")) import("./inside.js");
 if (document.getElementById("notebook-list")) import("./notebook.js");
 if (document.getElementById("diagram")) import("./lab.js");

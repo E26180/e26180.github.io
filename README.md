@@ -6,7 +6,8 @@ Plain HTML, CSS and vanilla JavaScript: no build step, no framework.
 
 ## What's inside
 
-- **Home** (one scrolling page): a hero that types out `ahmet@york:~$ whoami` and a draggable access pass on a lanyard (a small Verlet rope), then the lab, the latest write-ups, other work, skills with evidence and a timeline
+- **Home** (one scrolling page): a hero that types out `ahmet@york:~$ whoami` and a draggable access pass on a lanyard (a small Verlet rope), then *Inside the Mac*, the lab, the latest write-ups, other work, skills with evidence and a timeline
+- **Inside the Mac**: a scroll-driven CSS 3D scene on the home page. As you scroll, a Mac opens, a terminal and then Wireshark and UFW windows from Labs 1 and 2 open and close, the machine comes apart into labelled layers, the camera separates down to the lens and sensor, and it ends on the network chip sending the ARP request from Lab 4. Buttons under the caption jump to each scene. It is a stylised illustration, says so on screen, and has a text version for screen readers
 - **[/lab/](https://e26180.github.io/lab/)**: the Network & Firewall Lab case study as a scrollytelling page. A sticky diagram lights up the parts each lab was about (HTTP and TCP, UFW, DHCP and DNS, ARP) while you scroll through the four labs
 - **Latest from my lab notebook**: the newest write-ups from [security-notes](https://github.com/E26180/security-notes), fetched from the GitHub API with a session cache and a static fallback
 - **Mini terminal**: press <kbd>`</kbd> or the `>_` button and type `help`
@@ -16,6 +17,7 @@ Plain HTML, CSS and vanilla JavaScript: no build step, no framework.
 
 Everything below is off under `prefers-reduced-motion`, and the page reads fine without any of it.
 
+- *Inside the Mac* is driven by the scroll position (a few custom properties set once per frame); with reduced motion it becomes one labelled still
 - the name rises word by word, the section content fades in as it scrolls into view, a progress line grows along the top and the timeline rail draws itself (CSS scroll-driven animations where supported, `IntersectionObserver` elsewhere)
 - [Lenis](https://github.com/darkroomengineering/lenis) smooths wheel scrolling, only for a mouse or trackpad
 - moving between pages uses cross-document view transitions (Chrome, Safari): the header stays still and the page fades
@@ -42,6 +44,8 @@ maths.html              CS Maths & Tools (earlier project)
 404.html                not-found page
 styles.css              all styles, dark and light themes
 assets/js/main.js       theme, typed line, reveal, nav, smooth scroll; lazy-loads the modules below
+assets/js/inside.js     Inside the Mac: scroll progress to scene, labels, scene buttons
+assets/css/inside.css   Inside the Mac: the 3D machine, windows and captions
 assets/js/badge.js      lanyard physics
 assets/js/lab.js        scrollytelling for the lab diagram
 assets/js/notebook.js   GitHub API feed
