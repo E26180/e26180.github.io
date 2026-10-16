@@ -144,7 +144,7 @@ const isTyping = (t) => t instanceof HTMLElement && (t.isContentEditable || /^(I
 
 termButton?.addEventListener("click", () => openTerminal(termButton));
 document.addEventListener("keydown", (e) => {
-  if (e.key !== "`" || e.metaKey || e.ctrlKey || e.altKey || isTyping(e.target)) return;
+  if (!termButton || e.key !== "`" || e.metaKey || e.ctrlKey || e.altKey || isTyping(e.target)) return;
   if (document.getElementById("terminal")?.open) return;
   e.preventDefault();
   openTerminal(termButton);
