@@ -1040,6 +1040,7 @@ kbd {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: 16px;
+  align-items: start;
 }
 
 .work-card {
@@ -1206,6 +1207,17 @@ kbd {
   padding-bottom: 0;
 }
 
+/* stop the rail at the last dot */
+.timeline li:last-child::after {
+  position: absolute;
+  top: 22px;
+  bottom: 0;
+  left: 6px;
+  width: 4px;
+  content: "";
+  background: var(--bg);
+}
+
 .timeline li::before {
   position: absolute;
   top: 6px;
@@ -1286,6 +1298,22 @@ kbd {
   font-family: var(--mono);
   font-weight: 600;
   white-space: nowrap;
+}
+
+.facts-text {
+  margin-top: 10px;
+  color: var(--muted);
+}
+
+.work-card .note {
+  color: var(--dim);
+  font-size: 0.88rem;
+}
+
+.work-card .lab-top .chip {
+  color: var(--deny);
+  background: var(--deny-soft);
+  border-color: transparent;
 }
 
 /* ---------- footer ---------- */
