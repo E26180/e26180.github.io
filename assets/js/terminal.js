@@ -21,7 +21,7 @@ function el(tag, text, cls) {
 function link(text, href) {
   const a = el("a", text);
   a.href = href;
-  if (/^https?:/.test(href)) {
+  if (/^https?:/.test(href) && new URL(href, location.href).origin !== location.origin) {
     a.target = "_blank";
     a.rel = "noopener noreferrer";
     a.append(el("span", " (opens in a new tab)", "sr-only"));
@@ -58,7 +58,7 @@ const run = {
   },
   "ls projects"() {
     [
-      ["network-and-firewall-lab/", "flagship · home lab, 4 labs so far", "#lab"],
+      ["network-and-firewall-lab/", "flagship · home lab, 4 labs so far", "/lab/"],
       ["security-notes/", "public learning log", "#security-notes"],
       ["pusula/", "AI-assisted student productivity app · private beta", "#pusula"],
       ["earlier/", "Daily Wellness Tracker · Shape Management System · CS Maths & Tools", "#work"],
@@ -73,14 +73,13 @@ const run = {
     print(link("→ timeline and IYO results", "#timeline"));
   },
   labs() {
-    document.querySelectorAll(".lab-card").forEach((card) => {
-      const when = card.querySelector(".lab-top span")?.textContent.trim();
-      const title = card.querySelector("h3")?.textContent.trim();
-      const result = card.querySelector(".result dd")?.textContent.trim();
-      const href = card.querySelector("a[href]")?.href;
+    document.querySelectorAll(".lab-row").forEach((row) => {
+      const when = row.querySelector(".lab-when")?.textContent.trim();
+      const title = row.querySelector(".lab-name")?.textContent.trim();
+      const result = row.querySelector(".lab-result")?.textContent.trim();
       print(`${when}  ${title}`).classList.add("t-cmd");
       print(`  ${result}`);
-      if (href) print("  ", link("write-up ↗", href));
+      print("  ", link("details →", row.href));
     });
   },
   contact() {
@@ -144,8 +143,8 @@ input.addEventListener("keydown", (e) => {
 
 // links to sections of the page close the terminal so the section is visible
 log.addEventListener("click", (e) => {
-  const a = e.target.closest('a[href^="#"]');
-  if (!a) return;
+  const a = e.target.closest("a[href]");
+  if (!a || a.target === "_blank") return;
   opener = null; // let focus follow the link to its section instead of returning to the button
   dialog.close();
 });
@@ -154,10 +153,16 @@ dialog.querySelector("[data-close]")?.addEventListener("click", () => dialog.clo
 dialog.addEventListener("click", (e) => {
   if (e.target === dialog) dialog.close(); // a click on the backdrop
 });
-dialog.addEventListener("close", () => opener?.focus());
+dialog.addEventListener("close", () => {
+  opener?.focus();
+  document.dispatchEvent(new Event("terminal:close"));
+});
 
 export function open(from) {
   opener = from || document.activeElement;
-  if (!dialog.open) dialog.showModal();
+  if (!dialog.open) {
+    dialog.showModal();
+    document.dispatchEvent(new Event("terminal:open"));
+  }
   input.focus();
 }

@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-opRjTqQ1E5eUpc4SE9v3YoU5wuVpgtqT7zsobCj245Q='; style-src 'self'; img-src 'self'; connect-src 'self' https://api.github.com https://raw.githubusercontent.com; manifest-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-opRjTqQ1E5eUpc4SE9v3YoU5wuVpgtqT7zsobCj245Q='; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self' https://api.github.com https://raw.githubusercontent.com; manifest-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Ahmet Ege Baykoz · Computer Science with Cyber Security</title>
   <meta name="description" content="Year 2 Computer Science with Cyber Security student at the University of York, learning security through a documented home network lab. Seeking a 12-month industrial placement for 2027–28.">
   <link rel="canonical" href="https://e26180.github.io/">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Ahmet Ege Baykoz">
   <meta property="og:locale" content="en_GB">
@@ -28,21 +28,26 @@
   <meta name="twitter:image:alt" content="Ahmet Ege Baykoz, Computer Science with Cyber Security at the University of York, next to an access pass on a lanyard">
   <meta name="theme-color" content="#070b12">
   <meta name="color-scheme" content="dark light">
+  <link rel="preload" href="/assets/fonts/instrument-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/instrument-serif-latin-400-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/geist-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
-  <link rel="stylesheet" href="styles.css">
-  <script type="module" src="assets/js/main.js"></script>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/assets/js/main.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"></div>
 
   <header class="site-header">
     <div class="wrap header-inner">
-      <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">AEB</span>Ahmet Ege Baykoz</a>
+      <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">AEB</span>Ahmet Ege Baykoz</a>
       <nav class="site-nav" aria-label="Primary">
-        <a href="#lab">Lab</a>
-        <a href="#work">Work</a>
-        <a href="#skills">Skills</a>
-        <a href="#timeline">Timeline</a>
+        <a href="/lab/">Lab</a>
+        <a href="/#work">Work</a>
+        <a href="/#skills">Skills</a>
+        <a href="/#timeline">Timeline</a>
       </nav>
       <div class="header-actions">
         <button class="icon-btn" id="terminal-open" type="button" aria-haspopup="dialog" aria-controls="terminal" aria-keyshortcuts="`"><span aria-hidden="true">&gt;_</span><span class="sr-only">Open the terminal</span></button>
@@ -59,17 +64,17 @@
     <section class="hero wrap" id="top" aria-labelledby="hero-title">
       <div class="hero-copy">
         <p class="status"><span class="status-dot" aria-hidden="true"></span>Seeking a 12-month industrial placement · 2027–28</p>
-        <h1 id="hero-title">Ahmet Ege Baykoz</h1>
+        <h1 class="display" id="hero-title"><span class="w"><span>Ahmet</span></span> <span class="w"><span>Ege</span></span> <span class="w"><em>Baykoz</em></span></h1>
         <p class="hero-sub">BSc (Hons) Computer Science with Cyber Security · University of York · Year 2</p>
 
-        <div class="term-card" id="whoami">
+        <div class="term" id="whoami">
           <p><span class="ps1">ahmet@york:~$</span> <span class="typed" data-typed><span class="typed-ghost">whoami</span><span class="typed-live" aria-hidden="true"></span></span></p>
           <p class="term-out" id="pitch"><span class="typed" data-typed><span class="typed-ghost">Year 2 Computer Science with Cyber Security student at York, learning security by building a home lab and backing every conclusion with a packet capture.</span><span class="typed-live" aria-hidden="true"></span></span></p>
           <button class="skip-anim" type="button" hidden>Skip animation</button>
         </div>
 
         <div class="direction">
-          <p class="label" id="direction-label">Direction</p>
+          <p class="eyebrow" id="direction-label">Direction</p>
           <ol class="direction-path" aria-labelledby="direction-label">
             <li>Application / Product Security</li>
             <li>Cloud Security / Security Engineering</li>
@@ -78,9 +83,9 @@
         </div>
 
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#lab">Explore the lab</a>
-          <a class="btn ext" href="https://github.com/E26180" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in a new tab)</span></a>
-          <a class="btn ext" href="https://www.linkedin.com/in/ahmet-ege-baykoz-6897b635b/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+          <a class="btn" href="/lab/">Explore the lab <span aria-hidden="true">→</span></a>
+          <a class="link ext" href="https://github.com/E26180" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in a new tab)</span></a>
+          <a class="link ext" href="https://www.linkedin.com/in/ahmet-ege-baykoz-6897b635b/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
         </div>
       </div>
 
@@ -111,340 +116,191 @@
       </div>
     </section>
 
-    <section class="section" id="lab" aria-labelledby="lab-title">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="path">~/lab · flagship project</p>
-          <h2 id="lab-title">Network &amp; Firewall Lab</h2>
-          <p>A home lab I built to learn networking and host security by testing things myself and watching the traffic. An Ubuntu VM in UTM is the server, my Mac is the client, and every conclusion is backed by a packet capture or command output.</p>
-          <div class="lab-meta">
-            <span class="chip chip-allow">status: ongoing</span>
-            <span class="chip">4 labs so far</span>
-            <span class="chip">started October 2026</span>
-          </div>
-        </div>
-
-        <figure class="diagram card">
-          <svg class="diagram-wide" viewBox="0 0 1000 330" role="img" aria-labelledby="dg-title" aria-describedby="dg-desc">
-            <title id="dg-title">Lab network diagram</title>
-            <desc id="dg-desc">The macOS host sends HTTP requests to port 8000 through the UTM virtual bridge bridge100. On the Ubuntu VM at 192.168.64.2, the UFW firewall either drops the request under the default-deny policy or lets it through to python3 http.server on port 8000. The VM gets its DHCP lease and DNS from the gateway at 192.168.64.1, which also answers ARP and leads to the internet.</desc>
-            <defs>
-              <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow" d="M0 0 10 5 0 10z"/></marker>
-              <marker id="arrow-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow-dim" d="M0 0 10 5 0 10z"/></marker>
-            </defs>
-            <rect class="dg-box" x="20" y="40" width="230" height="150" rx="12"/>
-            <text class="dg-title" x="40" y="72">macOS host · client</text>
-            <text class="dg-text" x="40" y="102">curl · Safari</text>
-            <text class="dg-text" x="40" y="124">Wireshark</text>
-            <text class="dg-text" x="40" y="146">arp -a</text>
-
-            <rect class="dg-box" x="296" y="88" width="160" height="56" rx="10"/>
-            <text class="dg-title" x="312" y="112">bridge100</text>
-            <text class="dg-small" x="312" y="132">UTM virtual bridge</text>
-
-            <rect class="dg-box" x="500" y="20" width="480" height="210" rx="14"/>
-            <text class="dg-title" x="520" y="50">Ubuntu VM · server</text>
-            <text class="dg-small" x="520" y="70">enp0s1 · 192.168.64.2/24</text>
-            <rect class="dg-box dg-box-wall" x="528" y="84" width="120" height="96" rx="10"/>
-            <text class="dg-title" x="544" y="112">UFW</text>
-            <text class="dg-small" x="544" y="134">default deny</text>
-            <text class="dg-small" x="544" y="152">incoming</text>
-            <rect class="dg-box dg-box-ok" x="700" y="88" width="258" height="56" rx="10"/>
-            <text class="dg-title" x="716" y="112">python3 -m http.server</text>
-            <text class="dg-small" x="716" y="132">listening on :8000</text>
-            <text class="dg-small" x="520" y="212">tools: tcpdump · ip · nmcli · resolvectl</text>
-
-            <path class="dg-flow" d="M250 116H296M456 116H528M648 116H700" marker-end="url(#arrow)"/>
-            <text class="dg-label" x="300" y="78">HTTP :8000</text>
-
-            <path class="dg-line dg-dashed" d="M740 230V262" marker-end="url(#arrow-dim)"/>
-            <text class="dg-small" x="752" y="252">DHCP lease · DNS · ARP</text>
-            <rect class="dg-box dg-box-accent" x="560" y="264" width="300" height="56" rx="10"/>
-            <text class="dg-title" x="578" y="288">Gateway · DHCP · DNS</text>
-            <text class="dg-small" x="578" y="308">192.168.64.1</text>
-            <path class="dg-line" d="M860 292H930" marker-end="url(#arrow-dim)"/>
-            <text class="dg-text" x="936" y="296">Internet</text>
-
-            <circle class="packet packet-allow" cx="258" cy="116" r="6"/>
-            <circle class="packet packet-deny" cx="258" cy="116" r="6"/>
-          </svg>
-
-          <svg class="diagram-narrow" viewBox="0 0 340 580" role="img" aria-labelledby="dgn-title" aria-describedby="dg-desc">
-            <title id="dgn-title">Lab network diagram</title>
-            <defs>
-              <marker id="arrow-n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow" d="M0 0 10 5 0 10z"/></marker>
-              <marker id="arrow-n-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow-dim" d="M0 0 10 5 0 10z"/></marker>
-            </defs>
-            <rect class="dg-box" x="10" y="8" width="320" height="76" rx="12"/>
-            <text class="dg-title" x="28" y="38">macOS host · client</text>
-            <text class="dg-small" x="28" y="62">curl · Safari · Wireshark · arp -a</text>
-            <text class="dg-label" x="182" y="106">HTTP :8000</text>
-            <rect class="dg-box" x="90" y="118" width="160" height="50" rx="10"/>
-            <text class="dg-title" x="106" y="140">bridge100</text>
-            <text class="dg-small" x="106" y="158">UTM virtual bridge</text>
-            <rect class="dg-box" x="10" y="196" width="320" height="262" rx="14"/>
-            <rect class="dg-box dg-box-wall" x="40" y="218" width="260" height="56" rx="10"/>
-            <text class="dg-title" x="58" y="242">UFW</text>
-            <text class="dg-small" x="58" y="262">default deny incoming</text>
-            <rect class="dg-box dg-box-ok" x="40" y="296" width="260" height="56" rx="10"/>
-            <text class="dg-title" x="58" y="320">python3 -m http.server</text>
-            <text class="dg-small" x="58" y="340">listening on :8000</text>
-            <text class="dg-title" x="28" y="390">Ubuntu VM · server</text>
-            <text class="dg-small" x="28" y="410">enp0s1 · 192.168.64.2/24</text>
-            <text class="dg-small" x="28" y="438">tcpdump · ip · nmcli · resolvectl</text>
-            <path class="dg-flow" d="M170 84V118M170 168V218M170 274V296" marker-end="url(#arrow-n)"/>
-            <path class="dg-line dg-dashed" d="M170 458V490" marker-end="url(#arrow-n-dim)"/>
-            <text class="dg-small" x="182" y="480">DHCP · DNS · ARP</text>
-            <rect class="dg-box dg-box-accent" x="40" y="492" width="260" height="56" rx="10"/>
-            <text class="dg-title" x="58" y="516">Gateway · DHCP · DNS</text>
-            <text class="dg-small" x="58" y="536">192.168.64.1 → internet</text>
-            <circle class="packet packet-allow" cx="170" cy="92" r="6"/>
-            <circle class="packet packet-deny" cx="170" cy="92" r="6"/>
-          </svg>
-          <figcaption><span class="chip chip-allow">● allowed</span> <code>ufw allow 8000/tcp</code>: full handshake and <code>200 OK</code>. <span class="chip chip-deny">● blocked</span> default deny: the <code>SYN</code> is dropped and retransmitted, with no reply.</figcaption>
-        </figure>
-
-        <ol class="labs">
-          <li class="lab-card card" id="lab-1">
-            <p class="lab-top"><span>Lab #1 · 9 Oct 2026</span><span>Wireshark</span></p>
-            <h3>HTTP &amp; the TCP handshake</h3>
-            <dl class="lab-steps">
-              <div><dt>Question</dt><dd>What does a web request look like on the wire?</dd></div>
-              <div><dt>What I did</dt><dd>Served a page with <code>python3 -m http.server 8000</code> on the VM, requested it from the Mac with <code>curl</code> and Safari, read the server log and captured the traffic in Wireshark.</dd></div>
-              <div class="result"><dt>Key result</dt><dd>SYN → SYN-ACK → ACK, then GET / → 200 OK, all in plaintext</dd></div>
-              <div class="lesson"><dt>Security lesson</dt><dd>Plain HTTP is readable by anyone on the path, which is why HTTPS matters.</dd></div>
-            </dl>
-            <a class="ext" href="https://github.com/E26180/security-notes/blob/main/labs/2026-10-09-network-lab-1-http-wireshark.md" target="_blank" rel="noopener noreferrer">Read the Lab #1 write-up<span class="sr-only"> (opens in a new tab)</span></a>
-          </li>
-          <li class="lab-card card" id="lab-2">
-            <p class="lab-top"><span>Lab #2 · 11 Oct 2026</span><span>UFW</span></p>
-            <h3>UFW firewall: blocked vs allowed</h3>
-            <dl class="lab-steps">
-              <div><dt>Question</dt><dd>What changes when a host firewall blocks a port?</dd></div>
-              <div><dt>What I did</dt><dd>Set UFW to default deny incoming, tested port 8000 blocked and then allowed with <code>ufw allow 8000/tcp</code>, read the UFW logs, captured both cases with <code>tcp.port == 8000</code> and reverted the changes.</dd></div>
-              <div class="result"><dt>Key result</dt><dd>Blocked: only SYN + retransmissions, no reply. Allowed: full handshake + 200 OK. UFW logs show SRC, DST, DPT, PROTO</dd></div>
-              <div class="lesson"><dt>Security lesson</dt><dd>A firewall acts before the application: a dropped port looks like silence, not an error. Default deny, then open only what a service needs.</dd></div>
-            </dl>
-            <a class="ext" href="https://github.com/E26180/security-notes/blob/main/labs/2026-10-11-network-lab-2-ufw-firewall.md" target="_blank" rel="noopener noreferrer">Read the Lab #2 write-up<span class="sr-only"> (opens in a new tab)</span></a>
-          </li>
-          <li class="lab-card card" id="lab-3">
-            <p class="lab-top"><span>Lab #3 · 13 Oct 2026</span><span>DHCP · DNS</span></p>
-            <h3>Subnetting, DHCP &amp; DNS</h3>
-            <dl class="lab-steps">
-              <div><dt>Question</dt><dd>Where does the VM's network configuration come from?</dd></div>
-              <div><dt>What I did</dt><dd>Practised CIDR and subnet maths, then traced the VM's address, route, resolver and lease with <code>ip addr</code>, <code>ip route</code>, <code>resolvectl</code>, <code>nmcli</code> and <code>dig</code>.</dd></div>
-              <div class="result"><dt>Key result</dt><dd>DHCP gave IP, mask, gateway, DNS and a 1-hour lease; 127.0.0.53 is only a local DNS stub</dd></div>
-              <div class="lesson"><dt>Security lesson</dt><dd>Clients trust whatever DHCP and DNS tell them, so a rogue DHCP server or a spoofed DNS answer can silently redirect traffic.</dd></div>
-            </dl>
-            <a class="ext" href="https://github.com/E26180/security-notes/blob/main/labs/2026-10-13-network-lab-3-subnetting-dhcp-dns.md" target="_blank" rel="noopener noreferrer">Read the Lab #3 write-up<span class="sr-only"> (opens in a new tab)</span></a>
-          </li>
-          <li class="lab-card card" id="lab-4">
-            <p class="lab-top"><span>Lab #4 · 16 Oct 2026</span><span>tcpdump</span></p>
-            <h3>ARP: from IP to MAC</h3>
-            <dl class="lab-steps">
-              <div><dt>Question</dt><dd>How does the VM find the gateway's MAC address?</dd></div>
-              <div><dt>What I did</dt><dd>Flushed the neighbour cache, pinged the gateway and captured with <code>tcpdump -i enp0s1 arp</code>, comparing <code>ip neigh</code> with the Mac's <code>arp -a</code>.</dd></div>
-              <div class="result"><dt>Key result</dt><dd>ARP Request (broadcast to ff:ff:ff:ff:ff:ff) → ARP Reply (unicast), captured in tcpdump</dd></div>
-              <div class="lesson"><dt>Security lesson</dt><dd>ARP has no authentication, which makes ARP spoofing and MITM possible. I studied the defences conceptually: Dynamic ARP Inspection and DHCP snooping. HTTPS and VPNs keep data encrypted but don't stop the spoofing.</dd></div>
-            </dl>
-            <a class="ext" href="https://github.com/E26180/security-notes/blob/main/labs/2026-10-16-network-lab-4-arp.md" target="_blank" rel="noopener noreferrer">Read the Lab #4 write-up<span class="sr-only"> (opens in a new tab)</span></a>
-          </li>
-        </ol>
-
-        <div class="lab-footnote">
-          <div class="card">
-            <h3>How I work</h3>
-            <ul>
-              <li>Verify, don't assume: every conclusion comes from a capture or a command output.</li>
-              <li>A write-up for every lab, including the mistakes I made and corrected.</li>
-              <li>Revert what I change, like disabling UFW again after Lab #2.</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Next in the lab</h3>
-            <ul>
-              <li>Capture a DHCP lease renewal and a DNS query/response in Wireshark</li>
-              <li>Compare UFW <code>deny</code> (drop) with <code>reject</code> on the wire</li>
-              <li>Add a second VM to test traffic between two hosts</li>
-              <li>Move on to web security basics (OWASP Top 10)</li>
-            </ul>
-          </div>
-        </div>
-        <p class="lab-more"><a class="ext" href="https://github.com/E26180/security-notes/tree/main/projects/network-and-firewall-lab" target="_blank" rel="noopener noreferrer">Full project write-up on GitHub<span class="sr-only"> (opens in a new tab)</span></a></p>
+    <section class="section wrap" id="lab" aria-labelledby="lab-title">
+      <div class="sec-head" data-reveal>
+        <p class="eyebrow"><b>01</b>Flagship project</p>
+        <h2 class="h2" id="lab-title">Network &amp; Firewall <em>Lab</em></h2>
+        <p class="lede">A home lab I built to learn networking and host security by testing things myself and watching the traffic. An Ubuntu VM in UTM is the server, my Mac is the client, and every conclusion is backed by a packet capture or command output.</p>
       </div>
+      <ol class="rows" data-stagger>
+        <li><a class="row lab-row" href="/lab/#lab-1"><span class="row-when lab-when">Lab 01 · 9 Oct</span><span class="row-title lab-name">HTTP &amp; the TCP handshake</span><span class="row-result lab-result">SYN → SYN-ACK → ACK, then GET / → 200 OK, all in plaintext</span><span class="row-go" aria-hidden="true">→</span></a></li>
+        <li><a class="row lab-row" href="/lab/#lab-2"><span class="row-when lab-when">Lab 02 · 11 Oct</span><span class="row-title lab-name">UFW firewall: blocked vs allowed</span><span class="row-result lab-result">Blocked: only SYN + retransmissions, no reply. Allowed: full handshake + 200 OK</span><span class="row-go" aria-hidden="true">→</span></a></li>
+        <li><a class="row lab-row" href="/lab/#lab-3"><span class="row-when lab-when">Lab 03 · 13 Oct</span><span class="row-title lab-name">Subnetting, DHCP &amp; DNS</span><span class="row-result lab-result">DHCP gave IP, mask, gateway, DNS and a 1-hour lease; 127.0.0.53 is only a local DNS stub</span><span class="row-go" aria-hidden="true">→</span></a></li>
+        <li><a class="row lab-row" href="/lab/#lab-4"><span class="row-when lab-when">Lab 04 · 16 Oct</span><span class="row-title lab-name">ARP: from IP to MAC</span><span class="row-result lab-result">ARP Request (broadcast) → ARP Reply (unicast), captured in tcpdump</span><span class="row-go" aria-hidden="true">→</span></a></li>
+      </ol>
+      <p class="more" data-reveal><a class="link" href="/lab/">Read the case study, with the lab diagram <span aria-hidden="true">→</span></a></p>
     </section>
 
-    <section class="section" id="notebook" aria-labelledby="notebook-title">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="path">~/notebook · git log</p>
-          <h2 id="notebook-title">Latest from my lab notebook</h2>
-          <p>The three most recent write-ups in <a class="ext" href="https://github.com/E26180/security-notes" target="_blank" rel="noopener noreferrer">security-notes<span class="sr-only"> (opens in a new tab)</span></a>, my public learning log, fetched live from the GitHub API.</p>
-        </div>
-        <ol class="notebook" id="notebook-list">
-          <li><a href="https://github.com/E26180/security-notes/blob/main/labs/2026-10-16-network-lab-4-arp.md" target="_blank" rel="noopener noreferrer"><time class="nb-date" datetime="2026-10-16">16 Oct 2026</time><span class="nb-kind">Lab</span><span class="nb-title">Network Lab #4 – ARP: from IP address to MAC address<span class="sr-only"> (opens in a new tab)</span></span><span class="nb-go" aria-hidden="true">↗</span></a></li>
-          <li><a href="https://github.com/E26180/security-notes/blob/main/notes/2026-10-14-tryhackme-dns-http-in-detail.md" target="_blank" rel="noopener noreferrer"><time class="nb-date" datetime="2026-10-14">14 Oct 2026</time><span class="nb-kind">Notes</span><span class="nb-title">TryHackMe: DNS in Detail and HTTP in Detail<span class="sr-only"> (opens in a new tab)</span></span><span class="nb-go" aria-hidden="true">↗</span></a></li>
-          <li><a href="https://github.com/E26180/security-notes/blob/main/labs/2026-10-13-network-lab-3-subnetting-dhcp-dns.md" target="_blank" rel="noopener noreferrer"><time class="nb-date" datetime="2026-10-13">13 Oct 2026</time><span class="nb-kind">Lab</span><span class="nb-title">Network Lab #3 – Subnetting, DHCP and DNS on a real host<span class="sr-only"> (opens in a new tab)</span></span><span class="nb-go" aria-hidden="true">↗</span></a></li>
-        </ol>
-        <p class="notebook-status" id="notebook-status" role="status">Saved list. It refreshes from GitHub when the section comes into view.</p>
+    <section class="section wrap" id="notebook" aria-labelledby="notebook-title">
+      <div class="sec-head" data-reveal>
+        <p class="eyebrow"><b>02</b>git log</p>
+        <h2 class="h2" id="notebook-title">Latest from my <em>lab notebook</em></h2>
+        <p class="lede">The three most recent write-ups in <a class="ext" href="https://github.com/E26180/security-notes" target="_blank" rel="noopener noreferrer">security-notes<span class="sr-only"> (opens in a new tab)</span></a>, my public learning log, fetched live from the GitHub API.</p>
       </div>
+      <ol class="notebook" id="notebook-list">
+        <li><a href="https://github.com/E26180/security-notes/blob/main/labs/2026-10-16-network-lab-4-arp.md" target="_blank" rel="noopener noreferrer"><time class="nb-date" datetime="2026-10-16">16 Oct 2026</time><span class="nb-kind">Lab</span><span class="nb-title">Network Lab #4 – ARP: from IP address to MAC address<span class="sr-only"> (opens in a new tab)</span></span><span class="nb-go" aria-hidden="true">↗</span></a></li>
+        <li><a href="https://github.com/E26180/security-notes/blob/main/notes/2026-10-14-tryhackme-dns-http-in-detail.md" target="_blank" rel="noopener noreferrer"><time class="nb-date" datetime="2026-10-14">14 Oct 2026</time><span class="nb-kind">Notes</span><span class="nb-title">TryHackMe: DNS in Detail and HTTP in Detail<span class="sr-only"> (opens in a new tab)</span></span><span class="nb-go" aria-hidden="true">↗</span></a></li>
+        <li><a href="https://github.com/E26180/security-notes/blob/main/labs/2026-10-13-network-lab-3-subnetting-dhcp-dns.md" target="_blank" rel="noopener noreferrer"><time class="nb-date" datetime="2026-10-13">13 Oct 2026</time><span class="nb-kind">Lab</span><span class="nb-title">Network Lab #3 – Subnetting, DHCP and DNS on a real host<span class="sr-only"> (opens in a new tab)</span></span><span class="nb-go" aria-hidden="true">↗</span></a></li>
+      </ol>
+      <p class="notebook-status" id="notebook-status" role="status">Saved list. It refreshes from GitHub when the section comes into view.</p>
     </section>
 
-    <section class="section" id="work" aria-labelledby="work-title">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="path">~/work</p>
-          <h2 id="work-title">More work</h2>
-          <p>The learning log behind the lab, and the app I am building for students.</p>
-        </div>
-        <div class="work-grid">
-          <article class="work-card card" id="security-notes">
-            <p class="lab-top"><span>Public learning log</span><span>Markdown · Git</span></p>
-            <h3>security-notes</h3>
-            <p>My public learning log: lab write-ups, TryHackMe notes on DNS and HTTP, and a Linux, networking and Git command reference, all in my own words.</p>
-            <ul class="tags" aria-label="Contents">
-              <li class="chip">lab write-ups</li>
-              <li class="chip">TryHackMe notes</li>
-              <li class="chip">command reference</li>
-            </ul>
-            <p class="note">Notes only: no flags or room answers from TryHackMe.</p>
-            <a class="ext" href="https://github.com/E26180/security-notes" target="_blank" rel="noopener noreferrer">Open security-notes on GitHub<span class="sr-only"> (opens in a new tab)</span></a>
-          </article>
+    <section class="section wrap" id="work" aria-labelledby="work-title">
+      <div class="sec-head" data-reveal>
+        <p class="eyebrow"><b>03</b>More work</p>
+        <h2 class="h2" id="work-title">The notes behind the lab, and an app for <em>students</em></h2>
+      </div>
 
-          <article class="work-card card" id="pusula">
-            <p class="lab-top"><span class="chip">private beta · invite-only</span><span>Next.js · Vercel</span></p>
-            <h3>Pusula</h3>
-            <p>An AI-assisted student productivity application that I am developing and refining. It brings a student’s timetable, deadlines, focus sessions and goals into one calm place.</p>
-            <p><strong>The problem:</strong> student life is split across timetables, deadline trackers, focus timers and notes, so planning a realistic week takes effort. Pusula keeps these together, and its planning assistant proposes changes that the user approves before anything is added.</p>
-            <p><strong>My role:</strong> a solo project. I built it myself with substantial help from AI coding tools, and I continue to test and refine it.</p>
-            <figure>
-              <img src="assets/pusula/pusula-trailer-poster.webp" width="960" height="540" loading="lazy" decoding="async" alt="Pusula planner week view with an assistant panel proposing three revision sessions, shown with fictional demo data">
-              <figcaption>Still from the Pusula promotional trailer · fictional demo data</figcaption>
-            </figure>
-            <p class="note">Access is by invite only, and the source code is private.</p>
-            <a class="ext" href="https://pusula-rho.vercel.app/" target="_blank" rel="noopener noreferrer">Visit the Pusula landing page<span class="sr-only"> (opens in a new tab)</span></a>
-          </article>
+      <article class="work-item" id="security-notes" data-reveal>
+        <div>
+          <h3 class="h3">security-notes</h3>
+          <p class="work-meta">Public learning log · Markdown · Git</p>
         </div>
-
-        <div class="earlier">
-          <h3 class="label">Earlier projects</h3>
-          <ul>
-            <li><a class="card" href="https://github.com/E26180/daily-wellness-tracker" target="_blank" rel="noopener noreferrer"><strong>Daily Wellness Tracker ↗<span class="sr-only"> (opens in a new tab)</span></strong><span>Python · CSV storage, validation, summaries</span></a></li>
-            <li><a class="card" href="https://github.com/E26180/IY4101-Shape-Management-Assignment" target="_blank" rel="noopener noreferrer"><strong>Shape Management System ↗<span class="sr-only"> (opens in a new tab)</span></strong><span>Java · object-oriented design</span></a></li>
-            <li><a class="card" href="maths.html"><strong>CS Maths &amp; Tools →</strong><span>HTML · CSS · JS · binary converter</span></a></li>
+        <div class="work-body">
+          <p>My public learning log: lab write-ups, TryHackMe notes on DNS and HTTP, and a Linux, networking and Git command reference, all in my own words.</p>
+          <ul class="tags" aria-label="Contents">
+            <li class="chip">lab write-ups</li>
+            <li class="chip">TryHackMe notes</li>
+            <li class="chip">command reference</li>
           </ul>
+          <p class="note">Notes only: no flags or room answers from TryHackMe.</p>
+          <a class="link ext" href="https://github.com/E26180/security-notes" target="_blank" rel="noopener noreferrer">Open security-notes on GitHub<span class="sr-only"> (opens in a new tab)</span></a>
         </div>
+      </article>
+
+      <article class="work-item" id="pusula" data-reveal>
+        <div>
+          <h3 class="h3">Pusula</h3>
+          <p class="work-meta">Private beta · invite-only · Next.js · Vercel</p>
+        </div>
+        <div class="work-body">
+          <p>An AI-assisted student productivity application that I am developing and refining. It brings a student’s timetable, deadlines, focus sessions and goals into one calm place.</p>
+          <p><strong>The problem:</strong> student life is split across timetables, deadline trackers, focus timers and notes, so planning a realistic week takes effort. Pusula keeps these together, and its planning assistant proposes changes that the user approves before anything is added.</p>
+          <p><strong>My role:</strong> a solo project. I built it myself with substantial help from AI coding tools, and I continue to test and refine it.</p>
+          <figure>
+            <img src="/assets/pusula/pusula-trailer-poster.webp" width="960" height="540" loading="lazy" decoding="async" alt="Pusula planner week view with an assistant panel proposing three revision sessions, shown with fictional demo data">
+            <figcaption>Still from the Pusula promotional trailer · fictional demo data</figcaption>
+          </figure>
+          <p class="note">Access is by invite only, and the source code is private.</p>
+          <a class="link ext" href="https://pusula-rho.vercel.app/" target="_blank" rel="noopener noreferrer">Visit the Pusula landing page<span class="sr-only"> (opens in a new tab)</span></a>
+        </div>
+      </article>
+
+      <div class="earlier" data-reveal>
+        <h3 class="eyebrow">Earlier projects</h3>
+        <ul>
+          <li><a href="https://github.com/E26180/daily-wellness-tracker" target="_blank" rel="noopener noreferrer"><strong>Daily Wellness Tracker ↗<span class="sr-only"> (opens in a new tab)</span></strong><span>Python · CSV storage, validation, summaries</span></a></li>
+          <li><a href="https://github.com/E26180/IY4101-Shape-Management-Assignment" target="_blank" rel="noopener noreferrer"><strong>Shape Management System ↗<span class="sr-only"> (opens in a new tab)</span></strong><span>Java · object-oriented design</span></a></li>
+          <li><a href="/maths.html"><strong>CS Maths &amp; Tools →</strong><span>HTML · CSS · JS · binary converter</span></a></li>
+        </ul>
       </div>
     </section>
 
-    <section class="section" id="skills" aria-labelledby="skills-title">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="path">~/skills · with evidence</p>
-          <h2 id="skills-title">Skills, each with evidence</h2>
-          <p>No bars or percentages. Every skill links to where I actually used it.</p>
-        </div>
-        <div class="skills">
-          <article class="skill-group card">
-            <h3>Networking</h3>
-            <ul class="evidence">
-              <li><span>TCP three-way handshake</span><a href="#lab-1">Lab #1</a></li>
-              <li><span>Wireshark display filters</span><a href="#lab-2">Lab #2</a></li>
-              <li><span>Subnetting and CIDR</span><a href="#lab-3">Lab #3</a></li>
-              <li><span>DHCP (DORA) and DNS resolution</span><a href="#lab-3">Lab #3</a></li>
-              <li><span>ARP request and reply</span><a href="#lab-4">Lab #4</a></li>
-            </ul>
-          </article>
-          <article class="skill-group card">
-            <h3>Linux &amp; tooling</h3>
-            <ul class="evidence">
-              <li><span>UFW rules and logs</span><a href="#lab-2">Lab #2</a></li>
-              <li><span>tcpdump capture filters</span><a href="#lab-4">Lab #4</a></li>
-              <li><span><code>ip addr</code> · <code>ip route</code> · <code>resolvectl</code> · <code>nmcli</code> · <code>dig</code></span><a href="#lab-3">Lab #3</a></li>
-              <li><span><code>ip neigh</code> and the neighbour cache</span><a href="#lab-4">Lab #4</a></li>
-              <li><span>Linux, networking and Git command reference</span><a href="https://github.com/E26180/security-notes/blob/main/notes/2026-10-11-linux-networking-commands.md" target="_blank" rel="noopener noreferrer">notes ↗<span class="sr-only"> (opens in a new tab)</span></a></li>
-            </ul>
-          </article>
-          <article class="skill-group card">
-            <h3>Security concepts</h3>
-            <ul class="evidence">
-              <li><span>Why plaintext HTTP is risky</span><a href="#lab-1">Lab #1</a></li>
-              <li><span>Default-deny firewall policy</span><a href="#lab-2">Lab #2</a></li>
-              <li><span>Rogue DHCP and DNS spoofing risks</span><a href="#lab-3">Lab #3</a></li>
-              <li><span>ARP spoofing, MITM, DAI and DHCP snooping</span><a href="#lab-4">Lab #4</a></li>
-              <li><span>DNS and HTTP in detail</span><a href="https://github.com/E26180/security-notes/blob/main/notes/2026-10-14-tryhackme-dns-http-in-detail.md" target="_blank" rel="noopener noreferrer">TryHackMe notes ↗<span class="sr-only"> (opens in a new tab)</span></a></li>
-            </ul>
-          </article>
-          <article class="skill-group card">
-            <h3>Programming</h3>
-            <ul class="evidence">
-              <li><span>Python: CLI, CSV storage and validation</span><a href="https://github.com/E26180/daily-wellness-tracker" target="_blank" rel="noopener noreferrer">Wellness Tracker ↗<span class="sr-only"> (opens in a new tab)</span></a></li>
-              <li><span>Python: serving the lab with <code>http.server</code></span><a href="#lab-1">Lab #1</a></li>
-              <li><span>Java: object-oriented design</span><a href="https://github.com/E26180/IY4101-Shape-Management-Assignment" target="_blank" rel="noopener noreferrer">Shape Management ↗<span class="sr-only"> (opens in a new tab)</span></a></li>
-              <li><span>JavaScript: DOM and input validation</span><a href="maths.html">CS Maths &amp; Tools</a></li>
-            </ul>
-          </article>
-          <article class="skill-group card">
-            <h3>Workflow</h3>
-            <ul class="evidence">
-              <li><span>Git and GitHub</span><a href="https://github.com/E26180/security-notes" target="_blank" rel="noopener noreferrer">security-notes ↗<span class="sr-only"> (opens in a new tab)</span></a></li>
-              <li><span>A write-up for every lab, mistakes included</span><a href="#lab">The lab</a></li>
-              <li><span>HTML, CSS and JavaScript, no build step</span><a href="https://github.com/E26180/e26180.github.io" target="_blank" rel="noopener noreferrer">this site ↗<span class="sr-only"> (opens in a new tab)</span></a></li>
-            </ul>
-          </article>
-        </div>
+    <section class="section wrap" id="skills" aria-labelledby="skills-title">
+      <div class="sec-head" data-reveal>
+        <p class="eyebrow"><b>04</b>Skills</p>
+        <h2 class="h2" id="skills-title">Skills, each with <em>evidence</em></h2>
+        <p class="lede">No bars or percentages. Every skill links to where I actually used it.</p>
+      </div>
+      <div class="skills" data-stagger>
+        <article class="skill-group">
+          <h3>Networking</h3>
+          <ul class="evidence">
+            <li><span>TCP three-way handshake</span><a href="/lab/#lab-1">Lab #1</a></li>
+            <li><span>Wireshark display filters</span><a href="/lab/#lab-2">Lab #2</a></li>
+            <li><span>Subnetting and CIDR</span><a href="/lab/#lab-3">Lab #3</a></li>
+            <li><span>DHCP (DORA) and DNS resolution</span><a href="/lab/#lab-3">Lab #3</a></li>
+            <li><span>ARP request and reply</span><a href="/lab/#lab-4">Lab #4</a></li>
+          </ul>
+        </article>
+        <article class="skill-group">
+          <h3>Linux &amp; tooling</h3>
+          <ul class="evidence">
+            <li><span>UFW rules and logs</span><a href="/lab/#lab-2">Lab #2</a></li>
+            <li><span>tcpdump capture filters</span><a href="/lab/#lab-4">Lab #4</a></li>
+            <li><span><code>ip addr</code> · <code>ip route</code> · <code>resolvectl</code> · <code>nmcli</code> · <code>dig</code></span><a href="/lab/#lab-3">Lab #3</a></li>
+            <li><span><code>ip neigh</code> and the neighbour cache</span><a href="/lab/#lab-4">Lab #4</a></li>
+            <li><span>Linux, networking and Git command reference</span><a href="https://github.com/E26180/security-notes/blob/main/notes/2026-10-11-linux-networking-commands.md" target="_blank" rel="noopener noreferrer">notes ↗<span class="sr-only"> (opens in a new tab)</span></a></li>
+          </ul>
+        </article>
+        <article class="skill-group">
+          <h3>Security concepts</h3>
+          <ul class="evidence">
+            <li><span>Why plaintext HTTP is risky</span><a href="/lab/#lab-1">Lab #1</a></li>
+            <li><span>Default-deny firewall policy</span><a href="/lab/#lab-2">Lab #2</a></li>
+            <li><span>Rogue DHCP and DNS spoofing risks</span><a href="/lab/#lab-3">Lab #3</a></li>
+            <li><span>ARP spoofing, MITM, DAI and DHCP snooping</span><a href="/lab/#lab-4">Lab #4</a></li>
+            <li><span>DNS and HTTP in detail</span><a href="https://github.com/E26180/security-notes/blob/main/notes/2026-10-14-tryhackme-dns-http-in-detail.md" target="_blank" rel="noopener noreferrer">TryHackMe notes ↗<span class="sr-only"> (opens in a new tab)</span></a></li>
+          </ul>
+        </article>
+        <article class="skill-group">
+          <h3>Programming</h3>
+          <ul class="evidence">
+            <li><span>Python: CLI, CSV storage and validation</span><a href="https://github.com/E26180/daily-wellness-tracker" target="_blank" rel="noopener noreferrer">Wellness Tracker ↗<span class="sr-only"> (opens in a new tab)</span></a></li>
+            <li><span>Python: serving the lab with <code>http.server</code></span><a href="/lab/#lab-1">Lab #1</a></li>
+            <li><span>Java: object-oriented design</span><a href="https://github.com/E26180/IY4101-Shape-Management-Assignment" target="_blank" rel="noopener noreferrer">Shape Management ↗<span class="sr-only"> (opens in a new tab)</span></a></li>
+            <li><span>JavaScript: DOM and input validation</span><a href="/maths.html">CS Maths &amp; Tools</a></li>
+          </ul>
+        </article>
+        <article class="skill-group">
+          <h3>Workflow</h3>
+          <ul class="evidence">
+            <li><span>Git and GitHub</span><a href="https://github.com/E26180/security-notes" target="_blank" rel="noopener noreferrer">security-notes ↗<span class="sr-only"> (opens in a new tab)</span></a></li>
+            <li><span>A write-up for every lab, mistakes included</span><a href="/lab/">The lab</a></li>
+            <li><span>HTML, CSS and JavaScript, no build step</span><a href="https://github.com/E26180/e26180.github.io" target="_blank" rel="noopener noreferrer">this site ↗<span class="sr-only"> (opens in a new tab)</span></a></li>
+          </ul>
+        </article>
       </div>
     </section>
 
-    <section class="section" id="timeline" aria-labelledby="timeline-title">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="path">~/timeline</p>
-          <h2 id="timeline-title">Timeline</h2>
-        </div>
-        <div class="timeline-grid">
-          <ol class="timeline">
-            <li class="done">
-              <p class="tl-when">2026</p>
-              <h3>International Year One</h3>
-              <p>University of York International Pathway College · 82% overall</p>
-            </li>
-            <li class="now">
-              <p class="tl-when">2026–27 · now</p>
-              <h3>Year 2, University of York</h3>
-              <p>BSc (Hons) Computer Science with Cyber Security, with a year in industry</p>
-            </li>
-            <li class="next">
-              <p class="tl-when">2027–28</p>
-              <h3>Industrial placement</h3>
-              <p>Seeking a 12-month technical placement: a year in industry, not a summer internship.</p>
-            </li>
-            <li>
-              <p class="tl-when">2028–29</p>
-              <h3>Final year</h3>
-              <p>Graduating in 2029</p>
-            </li>
-          </ol>
-          <div class="facts">
-            <div class="card">
-              <h3>International Year One results</h3>
-              <ul>
-                <li>Overall <strong>82%</strong></li>
-                <li>Introduction to Databases <strong>100%</strong></li>
-                <li>Computer Architecture <strong>92%</strong></li>
-              </ul>
-            </div>
-            <div class="card">
-              <h3>Languages</h3>
-              <ul>
-                <li>Turkish <strong>native</strong></li>
-                <li>English <strong>fluent</strong></li>
-              </ul>
-            </div>
-            <div class="card" id="about">
-              <h3>Outside the coursework</h3>
-              <p class="facts-text">Linux, networking and embedded systems: I own and solder my own Raspberry Pi and Arduino boards. And Formula 1.</p>
-            </div>
+    <section class="section wrap" id="timeline" aria-labelledby="timeline-title">
+      <div class="sec-head" data-reveal>
+        <p class="eyebrow"><b>05</b>Timeline</p>
+        <h2 class="h2" id="timeline-title">Where I am, and <em>what comes next</em></h2>
+      </div>
+      <div class="timeline-grid">
+        <ol class="timeline">
+          <li class="done" data-reveal>
+            <p class="tl-when">2026</p>
+            <h3>International Year One</h3>
+            <p>University of York International Pathway College · 82% overall</p>
+          </li>
+          <li class="now" data-reveal>
+            <p class="tl-when">2026–27 · now</p>
+            <h3>Year 2, University of York</h3>
+            <p>BSc (Hons) Computer Science with Cyber Security, with a year in industry</p>
+          </li>
+          <li class="next" data-reveal>
+            <p class="tl-when">2027–28</p>
+            <h3>Industrial placement</h3>
+            <p>Seeking a 12-month technical placement: a year in industry, not a summer internship.</p>
+          </li>
+          <li data-reveal>
+            <p class="tl-when">2028–29</p>
+            <h3>Final year</h3>
+            <p>Graduating in 2029</p>
+          </li>
+          <span class="rail" aria-hidden="true"></span>
+        </ol>
+        <div class="facts" data-stagger>
+          <div>
+            <h3>International Year One results</h3>
+            <ul>
+              <li>Overall <strong>82%</strong></li>
+              <li>Introduction to Databases <strong>100%</strong></li>
+              <li>Computer Architecture <strong>92%</strong></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Languages</h3>
+            <ul>
+              <li>Turkish <strong>native</strong></li>
+              <li>English <strong>fluent</strong></li>
+            </ul>
+          </div>
+          <div id="about">
+            <h3>Outside the coursework</h3>
+            <p class="facts-text">Linux, networking and embedded systems: I own and solder my own Raspberry Pi and Arduino boards. And Formula 1.</p>
           </div>
         </div>
       </div>
@@ -459,7 +315,7 @@
         <li><a class="ext" href="https://www.linkedin.com/in/ahmet-ege-baykoz-6897b635b/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a></li>
         <li><a href="/.well-known/security.txt">security.txt</a></li>
       </ul>
-      <p class="footer-note">No trackers, no cookies, no third-party scripts · Content-Security-Policy enforced · plain HTML, CSS and JS · press <kbd>`</kbd> for a terminal.</p>
+      <p class="footer-note">No trackers, no cookies, nothing loaded from other sites · fonts and scripts are self-hosted · Content-Security-Policy enforced · press <kbd>`</kbd> for a terminal.</p>
     </div>
   </footer>
 
@@ -468,7 +324,7 @@
       <h2 id="terminal-title">ahmet@york: ~</h2>
       <button class="terminal-close" type="button" data-close>Close · Esc</button>
     </div>
-    <div class="terminal-body" id="terminal-log" role="log" aria-live="polite" tabindex="0">
+    <div class="terminal-body" id="terminal-log" role="log" aria-live="polite" tabindex="0" data-lenis-prevent>
       <p class="t-dim">Welcome. Type help to see the commands. Everything here is also on the page.</p>
     </div>
     <div class="terminal-input">
