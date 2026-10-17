@@ -119,7 +119,7 @@
 
     <section class="story-track" id="inside" aria-labelledby="inside-title">
       <div class="stage" id="stage">
-        <div class="floor" aria-hidden="true"></div>
+        <img class="poster" src="/assets/img/inside-mac.webp" width="1600" height="1000" alt="" decoding="async" loading="lazy">
 
         <div class="intro">
           <p class="eyebrow">A scroll-driven teardown</p>
@@ -129,125 +129,42 @@
         </div>
 
         <nav class="scenes" id="scenes" aria-label="Jump to a scene" hidden>
-          <button type="button" data-p="0.245">Terminal</button>
-          <button type="button" data-p="0.36">Labs</button>
-          <button type="button" data-p="0.63">Hardware</button>
-          <button type="button" data-p="0.795">Lens</button>
-          <button type="button" data-p="0.9">ARP</button>
+          <button type="button" data-p="0.28">Defences</button>
+          <button type="button" data-p="0.385">Terminal</button>
+          <button type="button" data-p="0.625">Teardown</button>
+          <button type="button" data-p="0.775">Data path</button>
         </nav>
 
-        <div class="cam" aria-hidden="true">
-          <div class="world" id="world">
-            <div class="layer case"><div class="plate"><i class="foot f1"></i><i class="foot f2"></i><i class="foot f3"></i><i class="foot f4"></i><i class="anchor" data-label="case"></i></div></div>
-
-            <div class="layer battery"><div class="plate"><span class="cells"><i></i><i></i><i></i><i></i><i></i></span><i class="anchor" data-label="battery"></i></div></div>
-
-            <div class="layer board">
-              <div class="plate">
-                <i class="ic soc"></i><i class="ic c2"></i><i class="ic c3"></i><i class="ic c4"></i><i class="ic c5"></i>
-                <i class="ic nic" id="nic"><b></b></i>
-                <i class="trace t1"></i><i class="trace t2"></i><i class="trace t3"></i>
-                <i class="anchor a-board" data-label="board"></i>
-                <i class="anchor a-nic" data-label="nic"></i>
-              </div>
-            </div>
-
-            <div class="layer deck"><div class="plate"><div class="keys"></div><div class="pad"></div><i class="anchor" data-label="deck"></i></div></div>
-
-            <div class="layer lid" id="lid">
-              <div class="face outer"><i class="anchor" data-label="lid"></i></div>
-              <div class="face inner">
-                <div class="bezel">
-                  <i class="cam-dot"></i>
-                  <div class="screen">
-                    <span class="bar b1"></span><span class="bar b2"></span><span class="bar b3"></span><span class="bar b4"></span><span class="bar b5"></span><span class="bar b6"></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="layer camlayer"><div class="module"><i class="anchor" data-label="camera"></i></div></div>
-          </div>
-        </div>
-
-        <div class="lens" id="lens" aria-hidden="true">
-          <div class="lworld" id="lworld">
-            <div class="ring r-glass"><i class="anchor" data-label="glass"></i></div>
-            <div class="ring r-el1"></div>
-            <div class="ring r-el2"><i class="anchor" data-label="elements"></i></div>
-            <div class="ring r-el3"></div>
-            <div class="ring r-barrel"></div>
-            <div class="sensor"><i class="anchor" data-label="sensor"></i></div>
-          </div>
-        </div>
-
-        <div class="labels" id="labels" aria-hidden="true">
-          <span class="plabel" data-side="right" data-for="lid">Display</span>
-          <span class="plabel" data-side="left" data-for="camera">Camera</span>
-          <span class="plabel" data-side="left" data-for="deck">Keyboard</span>
+        <div class="labels" aria-hidden="true">
+          <span class="plabel" data-side="left" data-for="display">Display</span>
+          <span class="plabel" data-side="left" data-for="keyboard">Keyboard</span>
           <span class="plabel" data-side="left" data-for="board">Logic board</span>
-          <span class="plabel" data-side="right" data-for="nic">Network chip</span>
-          <span class="plabel" data-side="right" data-for="battery">Battery</span>
-          <span class="plabel lens-l" data-side="right" data-for="glass">Cover glass</span>
-          <span class="plabel lens-l" data-side="left" data-for="elements">Lens elements</span>
-          <span class="plabel lens-l" data-side="right" data-for="sensor">Image sensor</span>
-        </div>
-
-        <div class="windows" aria-hidden="true">
-          <div class="win win-term" id="win-term">
-            <div class="win-bar"><i></i><i></i><i></i><span>Terminal</span></div>
-            <pre class="win-body"><span class="ps">ahmet@mac ~ %</span> <span id="t-cmd"></span><span class="caret" id="t-caret"></span>
-<span id="t-out" class="dim"></span></pre>
-          </div>
-
-          <div class="win win-shark" id="win-shark">
-            <div class="win-bar"><i></i><i></i><i></i><span>Wireshark · tcp.port == 8000</span></div>
-            <div class="win-body tbl">
-              <p class="tr head"><span>Source</span><span>Destination</span><span>Info</span></p>
-              <p class="tr"><span>Mac</span><span>192.168.64.2</span><span>SYN</span></p>
-              <p class="tr"><span>192.168.64.2</span><span>Mac</span><span>SYN, ACK</span></p>
-              <p class="tr"><span>Mac</span><span>192.168.64.2</span><span>ACK</span></p>
-              <p class="tr"><span>Mac</span><span>192.168.64.2</span><span>GET / HTTP/1.1</span></p>
-              <p class="tr ok"><span>192.168.64.2</span><span>Mac</span><span>HTTP/1.1 200 OK</span></p>
-            </div>
-          </div>
-
-          <div class="win win-ufw" id="win-ufw">
-            <div class="win-bar"><i></i><i></i><i></i><span>Ubuntu VM · UFW</span></div>
-            <pre class="win-body"><span class="ps">$</span> sudo ufw default deny incoming
-<span class="ps">$</span> sudo ufw allow 8000/tcp
-<span class="dim">blocked: SYN, retransmitted, no reply
-allowed: full handshake, 200 OK</span></pre>
-          </div>
-
-          <div class="win win-arp" id="win-arp">
-            <div class="win-bar"><i></i><i></i><i></i><span>tcpdump · arp</span></div>
-            <div class="win-body tbl">
-              <p class="tr head"><span>Packet</span><span>To</span><span>Info</span></p>
-              <p class="tr req"><span>ARP Request</span><span>broadcast</span><span>who has 192.168.64.1?</span></p>
-              <p class="tr ok"><span>ARP Reply</span><span>unicast</span><span>192.168.64.1 is at …</span></p>
-            </div>
-          </div>
+          <span class="plabel" data-side="right" data-for="fans">Fans</span>
+          <span class="plabel" data-side="left" data-for="battery">Battery</span>
+          <span class="plabel" data-side="left" data-for="case">Bottom case</span>
+          <span class="plabel data-l" data-side="right" data-for="touchid" data-dy="-24">Touch ID</span>
+          <span class="plabel data-l" data-side="left" data-for="soc" data-dy="-48">Secure Enclave · holds the keys</span>
+          <span class="plabel data-l" data-side="right" data-for="ssd" data-dy="16">SSD · encrypted at rest</span>
+          <span class="plabel data-l" data-side="left" data-for="wifi" data-dy="34">Wi-Fi · encrypted in transit</span>
         </div>
 
         <div class="hud" aria-hidden="true">
           <p class="caption" id="caption"></p>
           <p class="stepno mono" id="step"></p>
-          <p class="end" id="end"><span class="end-line">ARP has no authentication. That is why <em>spoofing</em> works.</span><a class="link" href="/lab/#lab-4" tabindex="-1">Read Lab #4 <span aria-hidden="true">→</span></a></p>
+          <p class="end" id="end">Encrypted at rest. Encrypted in transit. <em>Verified</em> before it runs.</p>
         </div>
 
-        <p class="disclaimer mono">Stylised illustration, not the exact internals of any Mac. Terminal output is illustrative.</p>
+        <p class="disclaimer mono">Stylised illustration, not the exact internals of any Mac. Keys and bytes on screen are random.</p>
 
         <div class="sr-only">
           <h3>The story, in words</h3>
-        <ol class="story-text">
-          <li><strong>Open the lid.</strong> A Mac opens and a terminal runs <code>arp -a</code>, which lists the IP and MAC pairs the Mac has learned on the lab network.</li>
-          <li><strong>Windows open and close.</strong> Wireshark shows the TCP handshake and the HTTP request from Lab #1, and the UFW rules from Lab #2 decide whether that request gets through.</li>
-          <li><strong>Take it apart.</strong> The display, camera, keyboard, logic board, network chip and battery float apart. The picture is a stylised illustration, not the exact internals of any Mac.</li>
-          <li><strong>Down to the lens.</strong> The camera module separates into cover glass, lens elements and the image sensor.</li>
-          <li><strong>The network chip.</strong> It sends an ARP request to the whole network (a broadcast): who has 192.168.64.1? The owner answers directly (a unicast reply). This is Lab #4.</li>
-          <li><strong>The lesson.</strong> ARP has no authentication, which makes ARP spoofing and man-in-the-middle attacks possible. <a href="/lab/#lab-4">Read the Lab #4 notes.</a></li>
-        </ol>
+          <ol>
+            <li>A laptop opens and a terminal checks three built-in macOS defences: System Integrity Protection is enabled, FileVault disk encryption is on, and Gatekeeper (<code>spctl</code>) is checking apps before they run.</li>
+            <li>Four windows stream at once: <code>ssh-keygen</code> makes an Ed25519 key and prints its fingerprint and randomart, <code>curl -v</code> shows the TLS 1.3 handshake with this site and its HSTS header, <code>tcpdump</code> shows the encrypted packets to GitHub Pages on port 443, and <code>xxd</code> prints random bytes from <code>/dev/urandom</code>.</li>
+            <li>The laptop comes apart: display, keyboard, logic board with its fans and heat pipes, battery and bottom case. It is a stylised illustration, not the exact internals of any Mac.</li>
+            <li>Follow the data: Touch ID talks to the Secure Enclave inside the main chip, which holds the encryption keys; data on the SSD is encrypted at rest; and it leaves over Wi-Fi encrypted in transit.</li>
+            <li>Encrypted at rest. Encrypted in transit. Verified before it runs.</li>
+          </ol>
         </div>
       </div>
     </section>
